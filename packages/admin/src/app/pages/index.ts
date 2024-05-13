@@ -1,0 +1,15 @@
+export * as Account from "./account";
+export * as Admins from "./admins";
+export * as Dashboard from "./dashboard";
+export * as General from "./general-updates";
+export * as Kyc from "./kyc";
+export * as NFT from "./nft";
+export * as P2P from "./p2p";
+export * as Referal from "./referal";
+export * as Spot from "./spot";
+export * as Ticket from "./tickets";
+export * as Transactions from "./transactions";
+export * as User from "./user";
+export * as Users from "./users";
+export * as Views from "./views";
+export * as Wallet from "./wallet";

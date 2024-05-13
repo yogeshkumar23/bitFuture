@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.png" />
+  <meta name="theme-color" content="#2566C3" />
+  <meta name="description"
+    content="Join millions of people worldwide in purchasing and selling digital assets in a convenient, quick, and safe environment." />
+  <!-- <meta name=”robots” content="index, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bit Future</title>
+  <style>
+    .preloader-image {
+      animation-fill-mode: both;
+      animation-name: flipCoin;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+    }
+
+    @-webkit-keyframes flipCoin {
+
+      0%,
+      100% {
+        -webkit-transform: rotateY(0);
+        -moz-transform: rotateY(0);
+        transform: rotateY(0);
+      }
+
+      50% {
+        -webkit-transform: rotateY(1980deg);
+        -moz-transform: rotateY(1980deg);
+        transform: rotateY(1980deg);
+      }
+
+    }
+  </style>
+</head>
+
+<body style="margin: 0">
+  <div id="root">
+    <div style="
+          height: 100vh;
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">
+      <img class="preloader-image" width="100px" src="http://54.219.39.240:8000/assets/Logos/coin.png" />
+
+    </div>
+  </div>
+  <script>
+    const global = globalThis;
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
