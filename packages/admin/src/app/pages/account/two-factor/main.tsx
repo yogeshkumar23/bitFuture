@@ -3,11 +3,12 @@ import React from "react";
 import * as Router from "react-router-dom";
 import * as Contexts from "src/app/contexts";
 import * as Pages from "src/app/pages";
+import * as Constants from "src/constants";
 
 export const Main = () => {
   const user = React.useContext(Contexts.UserContext);
   const navigate = Router.useNavigate();
-  const handleClick = () => navigate(-1);
+  const handleClick = () => navigate(`${Constants.API_CONFIG.base}`);
   return (
     <>
       <Mui.CardContent

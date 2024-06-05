@@ -10,6 +10,6 @@ export const Footer = () => (
       mt: 2,
     }}
   >
-    © Copyright {new Date().getFullYear()} by DooWorld. All rights reserved.
+    © Copyright {new Date().getFullYear()} by BitFutureWorld. All rights reserved.
   </Mui.Typography>
 );

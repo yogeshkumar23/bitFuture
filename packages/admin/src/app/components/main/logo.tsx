@@ -14,7 +14,7 @@ export const NavigateLogo = ({
     disableRipple
     component={Router.Link}
     to={`${Constants.API_CONFIG.base}`}
-    sx={{ zIndex: 2, width: "fit-content", p: 1, borderRadius: 1 }}
+    sx={{ zIndex: 2, width: "fit-content", borderRadius: 1 }}
   >
     <Mui.CardMedia
       component={video ? "video" : "img"}

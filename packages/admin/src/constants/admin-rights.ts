@@ -2,7 +2,7 @@ export const RIGHTS = [
   "General Updates",
   "Spot",
   "P2P",
-  "NFT",
+  // "NFT",
   "Users",
   "Admins",
   "KYC",

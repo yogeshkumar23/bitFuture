@@ -56,7 +56,7 @@ export const Main = () => {
       <Mui.Typography variant="inherit" color="success.dark">
         Active
       </Mui.Typography>
-    ),
+    ) ,
     twoFA: (
       <Mui.Stack direction="row" spacing={1} alignItems="center">
         {user.enableTwoFactor ? (

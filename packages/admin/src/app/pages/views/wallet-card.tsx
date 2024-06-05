@@ -87,7 +87,7 @@ export const WalletCard = ({ coins }: { coins: Hooks.Main.UseCoin.coin[] }) => {
           })}
         </Mui.Box>
       </Components.Global.Container>
-      <Components.Global.Container
+      {/* <Components.Global.Container
         direction="column"
         justifyContent="initial"
         spacing={1}
@@ -189,7 +189,7 @@ export const WalletCard = ({ coins }: { coins: Hooks.Main.UseCoin.coin[] }) => {
               );
             })}
         </Mui.Box>
-      </Components.Global.Container>
+      </Components.Global.Container> */}
       {/* <Components.Global.Container
         direction="column"
         justifyContent="initial"
@@ -294,7 +294,7 @@ export const WalletCard = ({ coins }: { coins: Hooks.Main.UseCoin.coin[] }) => {
             })}
         </Mui.Box>
       </Components.Global.Container> */}
-      <Components.Global.Container
+      {/* <Components.Global.Container
         direction="column"
         justifyContent="initial"
         spacing={1}
@@ -398,7 +398,7 @@ export const WalletCard = ({ coins }: { coins: Hooks.Main.UseCoin.coin[] }) => {
               );
             })}
         </Mui.Box>
-      </Components.Global.Container>
+      </Components.Global.Container> */}
     </Mui.Stack>
   );
 };

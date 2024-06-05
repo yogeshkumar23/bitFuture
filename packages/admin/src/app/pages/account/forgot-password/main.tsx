@@ -6,11 +6,10 @@ import * as Validations from "src/app/validations";
 
 export const Main = () => {
   const { forgot } = Hooks.User.useAuth();
-
   return (
     <>
       <Formik.Formik
-        initialValues={{ email: "" }}
+        initialValues={{ email: '' }}
         validationSchema={Validations.email}
         onSubmit={forgot}
       >

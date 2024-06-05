@@ -27,7 +27,7 @@ export const GlobalLoader = ({ sx, ...props }: Mui.StackProps) => {
     >
       <img
         className="preloader-image"
-        width="100px"
+        width="190px"
         src={Assets.LogoGif}
         alt="preloader"
       />
