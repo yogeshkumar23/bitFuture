@@ -6,6 +6,8 @@ import * as MuiIcons from "@mui/icons-material";
 import * as Components from "src/app/components";
 import * as Contexts from "src/app/contexts";
 import * as Constants from "src/constants";
+import { useTranslation } from "react-i18next";
+
 
 export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
   const { user } = React.useContext(Contexts.UserContext);
@@ -25,11 +27,14 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
     });
   };
 
+  const { t } = useTranslation();
+
+
   return (
     <Mui.Grid container spacing={3} sx={{ pr: 5, pb: 5, ml: "auto" }}>
       <Mui.Grid item xs={12} sm={6}>
         <Components.Form.FormField
-          label="First Name"
+          label={`${t('firstName')}`}
           name="firstName"
           size="small"
           disabled={disabled}
@@ -37,7 +42,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
       </Mui.Grid>
       <Mui.Grid item xs={12} sm={6}>
         <Components.Form.FormField
-          label="Last Name"
+          label={`${t('lastName')}`}
           name="lastName"
           size="small"
           disabled={disabled}
@@ -45,7 +50,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
       </Mui.Grid>
       <Mui.Grid item xs={12} sm={6}>
         <Components.Form.FormField
-          label="Email"
+          label={`${t('email')}`}
           name="email"
           size="small"
           disabled
@@ -56,13 +61,13 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
           size="small"
           name="phoneNumber"
           type="text"
-          label="Contact number"
+          label={`${t('contactNumber')}`}
           disabled={disabled}
         />
       </Mui.Grid>
       <Mui.Grid item xs={12} sm={6}>
         <Components.Form.FormField
-          label="Password"
+          label={`${t('password')}`}
           name="password"
           type="password"
           size="small"
@@ -79,7 +84,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
                   onClick={handleChangePassword}
                   sx={{ pointerEvents: "auto", cursor: "pointer" }}
                 >
-                  Change
+                 {t('change')}
                 </Mui.Link>
               </Mui.InputAdornment>
             ),
@@ -117,7 +122,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
               avatar
               disabled={disabled}
               name="profileImage"
-              label="Photo"
+              label={`${t('photo')}`}
               initName={`${user?.firstName}_${user?.lastName}`}
               sx={{ width: 50, height: 50 }}
             />
@@ -129,7 +134,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
                   sx={{ pt: 3, cursor: "pointer" }}
                   onClick={handleRemovePhoto}
                 >
-                  Remove Photo
+                 {t('remove') } { t('photo')}
                 </Mui.Link>
               ),
               true: (
@@ -139,7 +144,7 @@ export const UserInfo = ({ disabled }: { disabled?: boolean }) => {
                   component={Router.Link}
                   to="edit"
                 >
-                  Change
+                  {t('change')}
                 </Mui.Link>
               ),
             }[disabled as unknown as string]

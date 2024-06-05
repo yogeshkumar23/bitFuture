@@ -6,9 +6,13 @@ import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
 import * as Validations from "src/app/validations";
+import { useTranslation } from "react-i18next";
+
 
 export const EditUser = ({ user }: { user: Contexts.userContext.User }) => {
   const { update } = Hooks.User.useUserUpdate();
+  const { t } = useTranslation();
+
 
   return (
     <Mui.Container maxWidth="md" sx={{ p: { xs: 0, sm: 1 } }}>
@@ -34,7 +38,7 @@ export const EditUser = ({ user }: { user: Contexts.userContext.User }) => {
                 sx={{ height: "100%" }}
               >
                 <Mui.Typography variant="h5">
-                  Edit Personal Details
+                  {t('edit')} {t('personalDetails')}
                 </Mui.Typography>
                 <Pages.User.Profile.Views.UserInfo disabled={isSubmitting} />
               </Components.Global.Container>
@@ -46,7 +50,7 @@ export const EditUser = ({ user }: { user: Contexts.userContext.User }) => {
                   direction={{ xs: "column", sm: "row" }}
                 >
                   <Components.Form.SubmitButton sx={{ maxWidth: 150 }}>
-                    Save Changes
+                  {t('saveChanges')} 
                   </Components.Form.SubmitButton>
                   <Mui.Button
                     sx={{ width: 150 }}
@@ -54,7 +58,7 @@ export const EditUser = ({ user }: { user: Contexts.userContext.User }) => {
                     component={Router.Link}
                     to=".."
                   >
-                    Discard
+                   {t('discard')} 
                   </Mui.Button>
                 </Mui.Stack>
               </Mui.Grid>

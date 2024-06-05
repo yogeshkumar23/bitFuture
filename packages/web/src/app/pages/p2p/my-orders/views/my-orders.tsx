@@ -2,6 +2,8 @@ import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
+
 
 export const MyOrders = ({ trades }: { trades: p2pTrade[] }) => {
   const navigate = Router.useNavigate();
@@ -9,6 +11,9 @@ export const MyOrders = ({ trades }: { trades: p2pTrade[] }) => {
     navigate("edit", { state: { trade } });
   const handleDelete = (trade: p2pTrade) =>
     navigate("delete", { state: { trade } });
+
+  const {t} = useTranslation();
+
 
   const data = trades.map((trade) => ({
     id: trade.tradeId,
@@ -111,20 +116,23 @@ export const MyOrders = ({ trades }: { trades: p2pTrade[] }) => {
   return (
     <Components.Global.Container direction="column" spacing={2}>
       <Mui.Typography variant="h5" fontWeight={900}>
-        My Orders
+      {t('myOrders')}
       </Mui.Typography>
       <Components.Global.ResponsiveTable
         titles={[
-          "Post ID",
-          "Date",
-          "AD type",
-          "Trade Pair",
-          "Coin Limit",
-          // "Currency Limit",
-          "Quantity",
-          "Traded Coins",
-          "Payment Type",
-          "Actions/Status",
+          `${t('post')} ID`,
+          `${t('date')}`,
+          `AD ${t('type')}`,
+          `${t('trade')}  ${t('pair')}`,
+          `Coin ${t('limit')}`,
+          `${t('quantity')}`,
+          `${t('tradedCoins')}`,
+          `${t('payment')}  ${t('type')}`,
+          // "Actions/Status",
+
+          
+          `${t('actions')}/${t('status')}`,
+
         ]}
         data={data}
       />

@@ -5,8 +5,11 @@ import * as Components from "src/app/components";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
 
 export const Main = () => {
+
+  const { t } = useTranslation();
   const mdDown = Mui.useMediaQuery(Mui.useTheme().breakpoints.down("md"));
   const { user } = React.useContext(Contexts.UserContext);
   const { data: tickets } = Hooks.Firebase.useFireSnapshot<tickets>(
@@ -30,7 +33,7 @@ export const Main = () => {
             spacing={2}
           >
             <Mui.Typography variant="h6" sx={{ fontWeight: 900 }}>
-              Ticket History ({tickets?.length})
+              {t('ticketHistory')} ({tickets?.length})
             </Mui.Typography>
             <Mui.Stack
               id="ticketList"
@@ -61,7 +64,7 @@ export const Main = () => {
                   py={5}
                   sx={{ color: Mui.colors.grey[400] }}
                 >
-                  No Tickets Found
+                  {t('noTicketsFound')}
                 </Mui.Typography>
               )}
             </Mui.Stack>

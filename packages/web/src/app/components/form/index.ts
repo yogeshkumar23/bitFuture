@@ -9,3 +9,4 @@ export * from "./rating-button";
 export * from "./select-field";
 export * from "./submit-button";
 export * from "./text-field";
+export * from "./number-field";

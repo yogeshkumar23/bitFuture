@@ -5,6 +5,8 @@ import React from "react";
 import * as Assets from "src/assets";
 import * as Constants from "src/constants";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
+
 
 export const SearchBox = ({
   setFilter,
@@ -20,6 +22,7 @@ export const SearchBox = ({
   p2pCurrency: string[];
 }) => {
   const isMobile = Mui.useMediaQuery(Mui.useTheme().breakpoints.down("md"));
+  const {t} = useTranslation();
 
   const initial = {
     amount: "" as unknown as number,
@@ -59,13 +62,13 @@ export const SearchBox = ({
             <Components.Form.AmountField
               size="small"
               name="amount"
-              label="Amount"
-              placeholder="Enter Amount"
+              label={`${t('amount')}`}
+              placeholder={`${t('enter')} ${t('amount')}`}
               InputProps={{
                 endAdornment: (
                   <Mui.InputAdornment position="end" sx={{ mr: -1.8, mt: -1 }}>
                     <Components.Form.SelectField name="amountType" size="small">
-                      <Mui.MenuItem value="0">All</Mui.MenuItem>
+                      <Mui.MenuItem value="0">{t('all')}</Mui.MenuItem>
                       {p2pCurrency.map((text, index) => (
                         <Mui.MenuItem key={index} value={text}>
                           {text}
@@ -79,7 +82,7 @@ export const SearchBox = ({
             <Components.Form.SelectField
               size="small"
               name="paymentType"
-              label="Payment"
+              label={`${t('payment')}`}
               sx={{
                 minWidth: { md: 200 },
                 "& .MuiListItemIcon-root": {
@@ -94,7 +97,7 @@ export const SearchBox = ({
                     sx={{ height: 25, width: 25 }}
                   />
                 </Mui.ListItemIcon>
-                All Payments
+                {t('allPayments')}
               </Mui.MenuItem>
               {Object.entries(Constants.PaymentType).map(
                 ([key, value], index) => (
@@ -121,7 +124,7 @@ export const SearchBox = ({
                 sx={{ height: "initial", width: "fit-content" }}
                 startIcon={<MuiIcons.Search />}
               >
-                Search
+                {t('search')}
               </Components.Form.SubmitButton>
               <Mui.Button
                 id="clearFilter"
@@ -130,7 +133,7 @@ export const SearchBox = ({
                 startIcon={<MuiIcons.Refresh />}
                 type="reset"
               >
-                Refresh
+                {t('refresh')}
               </Mui.Button>
             </Mui.Stack>
           </Components.Global.Container>

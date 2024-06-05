@@ -1,8 +1,14 @@
 import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
 
-export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
-  <Components.Global.Container
+export const ContactDetail = ({ disabled }: { disabled?: boolean }) => {
+
+  const {t} = useTranslation();
+
+  return (
+
+    <Components.Global.Container
     id="contactDetail"
     sx={{
       maxWidth: { xs: "100%", md: 350 },
@@ -11,7 +17,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
     }}
     customTitle={
       <Mui.Typography variant="h6" color="primary.main" fontWeight="bold">
-        Contact Details
+        {t('contactDetails')}
       </Mui.Typography>
     }
   >
@@ -22,7 +28,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
           name="email"
           type="text"
           placeholder="Joe@gmail.com"
-          label="Email"
+          label={`${t('email')}`}
           disabled
         />
       </Mui.Grid>
@@ -32,7 +38,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
           size="small"
           name="primaryPhoneNumber"
           type="text"
-          label="Contact number"
+          label={`${t('contactNumber')}`}
           disabled={disabled}
         />
       </Mui.Grid>
@@ -41,10 +47,11 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
           size="small"
           name="secondaryPhoneNumber"
           type="text"
-          label="Secondary phone number"
+          label={`${t("secondaryPhoneNumber")}`}
           disabled={disabled}
         />
       </Mui.Grid>
     </Mui.Grid>
   </Components.Global.Container>
-);
+  )
+}

@@ -6,7 +6,6 @@ import * as Validations from "src/app/validations";
 
 export const Main = () => {
   const { login } = Hooks.User.useAuth();
-
   return (
     <>
       <Formik.Formik
@@ -14,9 +13,9 @@ export const Main = () => {
         validationSchema={Validations.login}
         onSubmit={login}
       >
-        {() => (
+        {({ values }) => (
           <Formik.Form>
-            <Pages.Account.Login.Views.Content />
+            <Pages.Account.Login.Views.Content userData={values.email} />
           </Formik.Form>
         )}
       </Formik.Formik>
@@ -24,3 +23,4 @@ export const Main = () => {
     </>
   );
 };
+

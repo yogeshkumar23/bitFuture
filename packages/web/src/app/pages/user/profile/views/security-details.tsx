@@ -3,6 +3,7 @@ import * as Router from "react-router-dom";
 import * as Api from "src/api";
 import * as Components from "src/app/components";
 import * as Contexts from "src/app/contexts";
+import { useTranslation } from "react-i18next";
 
 export const SecurityDetails = ({
   user,
@@ -16,6 +17,8 @@ export const SecurityDetails = ({
     update();
   };
 
+  const { t } = useTranslation();
+
   return (
     <Components.Global.Container
       id="twoFactorAuthentication"
@@ -23,14 +26,14 @@ export const SecurityDetails = ({
       justifyContent="start"
       spacing={2}
     >
-      <Mui.Typography variant="h5">Security Details</Mui.Typography>
+      <Mui.Typography variant="h5">{t('securityDetails')}</Mui.Typography>
       <Mui.Stack
         direction="row"
         alignItems="center"
         justifyContent="space-between"
       >
         <Mui.Typography variant="body1">
-          Two-Factor Authentication
+          {t('twoFactorAuthentication')}
         </Mui.Typography>
         {!user?.enableTwoFactor ? (
           <Mui.Button
@@ -38,7 +41,7 @@ export const SecurityDetails = ({
             component={Router.Link}
             to="two-factor"
           >
-            Enable
+            {t('enable')}
           </Mui.Button>
         ) : (
           <Mui.Button
@@ -46,7 +49,7 @@ export const SecurityDetails = ({
             variant="outlined"
             onClick={disableTwoStep}
           >
-            Disable
+           {t('disable')}
           </Mui.Button>
         )}
       </Mui.Stack>

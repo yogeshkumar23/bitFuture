@@ -5,6 +5,8 @@ import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Components from "src/app/components";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const TradeHistory = ({
   account,
@@ -19,6 +21,8 @@ export const TradeHistory = ({
   logs: logger[] | undefined;
   contentCopy: (wid: string) => void;
 }) => {
+  const {t} = useTranslation();
+
   const { user } = React.useContext(Contexts.UserContext);
   const [value, setValue] = React.useState<"spot" | "p2p" | "token">("spot");
   const [filter, setFilter] = React.useState("");
@@ -185,7 +189,7 @@ export const TradeHistory = ({
       customTitle={
         <Mui.Stack sx={{ width: "100%" }}>
           <Mui.Typography variant="h6" flexGrow={0} fontWeight={900}>
-            Trade History
+            {t('tradeHistory')}
           </Mui.Typography>
           <Mui.Stack
             direction={{ xs: "column", md: "row" }}
@@ -213,7 +217,7 @@ export const TradeHistory = ({
                   fontWeight: "bold",
                 }}
               >
-                Spot{" "}
+                 {t('spot')}{" "}
                 {trades?.filter(({ status }) =>
                   ["completed", "FILLED", "done"].includes(status)
                 )?.length
@@ -260,7 +264,7 @@ export const TradeHistory = ({
                   />
                 )}
               </Mui.Button>
-              <Mui.Button
+              {/* <Mui.Button
                 variant="text"
                 onClick={() => setValue("token")}
                 sx={{
@@ -283,14 +287,14 @@ export const TradeHistory = ({
                     }}
                   />
                 )}
-              </Mui.Button>
+              </Mui.Button> */}
             </Mui.ButtonGroup>
             <Mui.Box flexGrow={1} />
             <Mui.TextField
               size="small"
               value={filter}
               onChange={handleChange}
-              placeholder="Filter records"
+              placeholder={`${t('filterRecords')}`}
             />
           </Mui.Stack>
         </Mui.Stack>
@@ -325,14 +329,14 @@ export const TradeHistory = ({
           p2p: (
             <Components.Global.ResponsiveTable
               titles={[
-                "Post ID",
-                "Date",
-                "AD Type",
-                "Trade Pair",
-                "Limit",
-                "Quantity",
-                "Payment Type",
-                "Status",
+                `${t('post')} ID`,
+                `${t('date')}`,
+                `AD ${t('type')}`,
+                `${t('trade')}  ${t('pair')}`,
+                `${t('limit')}`,
+                `${t('quantity')}`,
+                `${t('payment')}  ${t('type')}`,
+                `${t('status')}`,
               ]}
               data={p2p_data}
             />

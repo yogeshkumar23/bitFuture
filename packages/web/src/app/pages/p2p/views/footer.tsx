@@ -2,9 +2,13 @@ import * as Mui from "@mui/material";
 import React from "react";
 import * as Assets from "src/assets";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
+
 
 export const Footer = () => {
   const [index, setIndex] = React.useState(true);
+  const {t} = useTranslation();
+
   return (
     <Components.Global.Container
       direction="column"
@@ -18,7 +22,7 @@ export const Footer = () => {
       }}
     >
       <Mui.Typography align="center" variant="h5" fontWeight={900}>
-        How P2P Works
+      {t('howp2pwork')}
       </Mui.Typography>
 
       <Mui.ButtonGroup
@@ -38,7 +42,7 @@ export const Footer = () => {
             px: 5,
           }}
         >
-          Buy Asset
+          {t('buyAssets')}
           {index && (
             <Mui.Box
               sx={{
@@ -62,7 +66,7 @@ export const Footer = () => {
             px: 5,
           }}
         >
-          Sell Asset
+          {t('sellAssets')}
           {!index && (
             <Mui.Box
               sx={{
@@ -89,30 +93,30 @@ export const Footer = () => {
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.PlaceAnOrder : Assets.Strategy}
-          title={index ? "Place an Order" : "Post an Order"}
+          title={index ? `${t('PlaceAnOrder')}` : "Post an Order"}
           content={
             index
-              ? `After choosing the asset that you want to purchase; pick a seller from the list of sellers within the region you wish to trade in or post your own "Buy order" and initiate trade.`
+              ? `${t('afterChoosingTheAssets')}`
               : `After choosing the asset that you want to sell; post your "sell order" based on your sale parameters and trade terms or pick from the list of buyers within the region you wish to trade in and initiate trade.`
           }
         />
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.PayTheSeller : Assets.Decide}
-          title={index ? "Pay the Seller" : "Receive Payment"}
+          title={index ? `${t('payTheSeller')}` : "Receive Payment"}
           content={
             index
-              ? `Make payment through the right payment method to the seller based on seller's trade terms and general P2P guidelines and confirm when payment has been made.`
+              ? `${t('makeYourPaymentThrough')}`
               : `Wait to Receive payment in the right external account or right payment channel that you have specified within the time frame that you have given.`
           }
         />
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.GetCrypto : Assets.Fill}
-          title={index ? "Get your Asset" : "Get your Cash"}
+          title={index ? `${t('getYourAssets')}` : "Get your Cash"}
           content={
             index
-              ? `Once payment has been confirmed by seller in thier external account, the asset's ownership would be rightfully transfered to the you.`
+              ? `${t('oncePaymentHasBeenConfirm')}`
               : `Once payment has been confirmed in your external account, initiate "release" so that asset's ownership would be rightfully transfered to the Buyer.`
           }
         />

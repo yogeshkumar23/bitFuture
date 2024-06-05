@@ -1,8 +1,13 @@
 import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
 
-export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
-  <Components.Global.Container
+export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => {
+
+  const {t} = useTranslation();
+
+  return (
+    <Components.Global.Container
     id="documentDetail"
     sx={{
       maxWidth: { xs: "100%", md: 350 },
@@ -11,7 +16,7 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
     }}
     customTitle={
       <Mui.Typography variant="h6" color="primary.main" fontWeight="bold">
-        Document Details
+       {t('documentDetails')}
       </Mui.Typography>
     }
   >
@@ -20,7 +25,7 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
         <Components.Form.SelectField
           size="small"
           name="documentType"
-          label="Type of document"
+          label={`${t("typeOfDocument")}`}
           defaultValue={0}
           disabled={disabled}
         >
@@ -37,13 +42,13 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
         </Components.Form.SelectField>
       </Mui.Grid>
       <Mui.Grid item xs={12} md={6}>
-        <Components.Form.FormField
+        <Components.Form.NumberField
           size="small"
-          type="text"
           name="documentNumber"
-          label="Selected document number"
+          label={`${t("selectDocumentNumber")}`}
           placeholder="XXXX XXXX XXXX XXXX"
           disabled={disabled}
+          inputProps={{maxLength: 16}}
         />
       </Mui.Grid>
       <Mui.Grid item xs={12} md={6}>
@@ -53,7 +58,7 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
             height: 200,
             width: "inherit",
           }}
-          label="Upload document (FRONT)"
+          label={`${t("uploadDocumentFront")}`}
           disabled={disabled}
         />
       </Mui.Grid>
@@ -64,7 +69,7 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
             height: 200,
             width: "inherit",
           }}
-          label="Upload document (BACK)"
+          label={`${t("uploadDocumentBack")}`}
           disabled={disabled}
         />
       </Mui.Grid>
@@ -81,13 +86,11 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => (
       </Mui.Grid> */}
       <Mui.Grid item xs={12}>
         <Mui.Alert severity="warning" icon={false}>
-          <Mui.AlertTitle>Notes:</Mui.AlertTitle>
-          Upload the selected document in .jpg, .jpeg or .pdf format, as
-          described above. The maximum file size should be less than of 5mb.
-          Before submitting, double-check that the document includes the correct
-          information.
+          <Mui.AlertTitle>{t("notes")}:</Mui.AlertTitle>
+          {t('uploadTheSelectDocument')}
         </Mui.Alert>
       </Mui.Grid>
     </Mui.Grid>
   </Components.Global.Container>
-);
+  )
+}

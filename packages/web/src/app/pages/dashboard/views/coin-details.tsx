@@ -2,6 +2,7 @@ import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
 
 export const CoinDetails = ({
   coinWalletDetails,
@@ -52,6 +53,9 @@ export const CoinDetails = ({
         ]
     : [];
 
+    const {t} = useTranslation();
+
+
   return (
     <Components.Global.Container
       direction="column"
@@ -66,7 +70,7 @@ export const CoinDetails = ({
         spacing={1}
       >
         <Mui.Typography variant="h5" fontWeight={900}>
-          Dashboard
+        {t('dashboard')}
         </Mui.Typography>
         {/* <Mui.Stack
           direction="row"

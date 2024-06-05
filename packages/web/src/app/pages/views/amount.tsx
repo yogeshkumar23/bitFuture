@@ -3,6 +3,8 @@ import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
 import * as Constants from "src/constants";
 import * as Hooks from "src/app/hooks";
+import { useTranslation } from "react-i18next";
+
 
 export const AmountBox = ({
   coinWalletDetails,
@@ -52,6 +54,9 @@ export const AmountBox = ({
       },
     });
 
+    const {t} = useTranslation();
+
+
   return (
     <Components.Global.Container
       direction="column"
@@ -67,7 +72,8 @@ export const AmountBox = ({
           spacing={1}
         >
           <Mui.Typography variant="h6" noWrap sx={{ color: "#ffff" }}>
-            Balance Details
+          {t('balanceDetails')}
+
           </Mui.Typography>
           <Mui.Button
             id="mainCurrencyDeposit"
@@ -76,7 +82,8 @@ export const AmountBox = ({
             color="success"
             onClick={handleDeposit}
           >
-            Deposit
+           {t('deposit')}
+
           </Mui.Button>
           <Mui.Button
             id="mainCurrencyWithdraw"
@@ -86,14 +93,16 @@ export const AmountBox = ({
             color="warning"
             onClick={handleWithdraw}
           >
-            Withdraw
+            {t('withdraw')}
+
           </Mui.Button>
         </Mui.Stack>
 
         <Mui.Divider sx={{ bgcolor: "#ffff", mt: 1, opacity: 0.8 }} />
       </Mui.Box>
       <Mui.Typography variant="body1" sx={{ color: "#ffff", opacity: 0.8 }}>
-        Total available balance
+      {t('totalAvailableBalance')}
+
       </Mui.Typography>
       <Mui.Stack direction="row" justifyContent="space-between">
         <Mui.Typography variant="h5" sx={{ color: "#ffff" }}>
@@ -118,7 +127,8 @@ export const AmountBox = ({
         }}
       >
         <Mui.Typography variant="body1" sx={{ color: "#ffff" }}>
-          Total asset value:
+        {t('totalAssetValue')}:
+
         </Mui.Typography>
         <Mui.Typography variant="body1" align="right" sx={{ color: "#ffff" }}>
           <Components.Global.Format

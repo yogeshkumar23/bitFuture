@@ -2,7 +2,7 @@ import * as Api from "src/api";
 import * as Yup from "yup";
 
 export const email = Yup.object().shape({
-  email: Yup.string().nullable().required("No email provided").email(),
+  email: Yup.string().nullable().required("Email is required").email(),
 });
 
 export const password = Yup.object().shape({
@@ -47,13 +47,13 @@ export const phoneNumber = Yup.object().shape({
   phoneNumber: Yup.string()
     .min(10, "PhoneNumber too short")
     .max(19, "PhoneNumber too large")
-    .required("No phone No. provided")
+    .required("Phone No. is required")
     .nullable(),
 });
 
 export const user = Yup.object().shape({
-  firstName: Yup.string().nullable().required("No First Name provided"),
-  lastName: Yup.string().nullable().required("No Last Name provided"),
+  firstName: Yup.string().nullable().required("First Name is required"),
+  lastName: Yup.string().nullable().required("Last Name is required"),
 });
 
 export const profile = user.concat(phoneNumber).concat(email);
@@ -69,21 +69,21 @@ export const PaymentDetails = Yup.object().shape({
       "paymentType",
       (paymentType: string, field: Yup.NumberSchema<number | undefined>) =>
         paymentType === "Bank Transfer"
-          ? field.required("No Account No provided")
+          ? field.required("Account No is required")
           : field
     ),
   bank_transfer$account_name: Yup.string().when(
     "paymentType",
     (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
       paymentType === "Bank Transfer"
-        ? field.required("No Account Name provided")
+        ? field.required("Account Name is required")
         : field
   ),
   bank_transfer$bank_name: Yup.string().when(
     "paymentType",
     (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
       paymentType === "Bank Transfer"
-        ? field.required("No Bank Address provided")
+        ? field.required("Bank Address is required")
         : field
   ),
   bank_transfer$ifsc_code: Yup.string().matches(
@@ -100,7 +100,7 @@ export const PaymentDetails = Yup.object().shape({
     .when(
       "paymentType",
       (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
-        paymentType === "UPI" ? field.required("No UPI ID provided") : field
+        paymentType === "UPI" ? field.required("UPI ID is required") : field
     ),
   interac$email: Yup.string()
     .email("Invalid email")
@@ -111,7 +111,7 @@ export const PaymentDetails = Yup.object().shape({
           ? field.when(
               "interac$mobile_no",
               (mobileNo: string, field: Yup.StringSchema<string | undefined>) =>
-                !mobileNo ? field.required("No email provided") : field
+                !mobileNo ? field.required("Email is required") : field
             )
           : field
     ),
@@ -138,7 +138,7 @@ export const PaymentDetails = Yup.object().shape({
           ? field.when(
               "zelle$mobile_no",
               (mobileNo: string, field: Yup.StringSchema<string | undefined>) =>
-                !mobileNo ? field.required("No email provided.") : field
+                !mobileNo ? field.required("Email is required.") : field
             )
           : field
     ),
@@ -163,7 +163,7 @@ export const PaymentDetails = Yup.object().shape({
   "m-pesa$name": Yup.string().when(
     "paymentType",
     (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
-      paymentType === "M-PESA" ? field.required("No name provided") : field
+      paymentType === "M-PESA" ? field.required("Name is required") : field
   ),
   "m-pesa$mobile_no": Yup.string()
     .min(10, "PhoneNumber too short")
@@ -172,14 +172,14 @@ export const PaymentDetails = Yup.object().shape({
       "paymentType",
       (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
         paymentType === "M-PESA"
-          ? field.required("No phone no. provided")
+          ? field.required("Phone no. is required")
           : field
     ),
   mtn_mobile_money$name: Yup.string().when(
     "paymentType",
     (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
       paymentType === "MTN MOBILE MONEY"
-        ? field.required("No name provided")
+        ? field.required("Name is required")
         : field
   ),
   mtn_mobile_money$mobile_no: Yup.string()
@@ -189,7 +189,7 @@ export const PaymentDetails = Yup.object().shape({
       "paymentType",
       (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
         paymentType === "MTN MOBILE MONEY"
-          ? field.required("No phone no. provided")
+          ? field.required("Phone no. is required")
           : field
     ),
   cash_app$cash_tag_id: Yup.string()
@@ -198,7 +198,7 @@ export const PaymentDetails = Yup.object().shape({
       "paymentType",
       (paymentType: string, field: Yup.StringSchema<string | undefined>) =>
         paymentType === "Cash App"
-          ? field.required("No cash tag id provided")
+          ? field.required("Cash tag id is required")
           : field
     ),
 });

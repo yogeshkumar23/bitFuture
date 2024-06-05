@@ -74,7 +74,7 @@ export const Main = () => {
             element: <Router.Navigate to="/" />,
           },
           {
-            path: "/*",
+            path: "",
             element: <HomeMain />,
             children: [
               {

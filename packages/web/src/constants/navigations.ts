@@ -1,1 +1,7 @@
-export const Navigations = ["Dashboard", "Spot", "P2P", "NFT", "Wallet"];
+export const Navigations = ["Dashboard", "Spot", "P2P", "Wallet"];
+
+
+// export const Navigations = [{
+//     name: `${translation("dashboard")}`,
+//     path: 'dashboard'
+// }];

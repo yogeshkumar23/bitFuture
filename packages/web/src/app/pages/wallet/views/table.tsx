@@ -5,6 +5,8 @@ import * as Components from "src/app/components";
 import * as Constants from "src/constants";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const TableCard = ({
   coinWalletDetails,
@@ -21,6 +23,8 @@ export const TableCard = ({
   syncedAccount: string;
   nfts: nft[];
 }) => {
+  const {t} = useTranslation();
+
   const [value, setValue] = React.useState<"crypto" | "nft">("crypto");
   const navigate = Router.useNavigate();
   const handleDeposit = (coin: Hooks.User.coinsWallet) =>
@@ -103,7 +107,7 @@ export const TableCard = ({
                 component={Mui.Button}
                 onClick={() => handleDeposit(coin)}
               >
-                Deposit
+                {t('deposit')}
               </Mui.Link>
               <Mui.Link
                 id="cryptoWithdraw"
@@ -112,7 +116,7 @@ export const TableCard = ({
                 component={Mui.Button}
                 onClick={() => handleWithdraw(coin)}
               >
-                Withdraw
+                {t('withdraw')}
               </Mui.Link>
               <Mui.Link
                 id="cryptoTrade"
@@ -132,7 +136,7 @@ export const TableCard = ({
   return (
     <Components.Global.Container direction="column" spacing={2}>
       <Mui.Typography variant="h6" fontWeight={900}>
-        My Assets
+        {t('myAssets')}
       </Mui.Typography>
       <Mui.Alert
         severity="info"
@@ -161,7 +165,7 @@ export const TableCard = ({
             fontWeight: "bold",
           }}
         >
-          Cryptos
+          {t('cryptos')}
           {value === "crypto" && (
             <Mui.Box
               sx={{
@@ -175,7 +179,7 @@ export const TableCard = ({
             />
           )}
         </Mui.Button>
-        <Mui.Button
+        {/* <Mui.Button
           variant="text"
           onClick={() => setValue("nft")}
           sx={{
@@ -198,14 +202,20 @@ export const TableCard = ({
               }}
             />
           )}
-        </Mui.Button>
+        </Mui.Button> */}
       </Mui.ButtonGroup>
       {
         {
           crypto: (
             <Components.Global.ResponsiveTable
               id="availableCryptos"
-              titles={["COIN", "AMOUNT", "PRICE", "P2P ESCROW", "ACTION"]}
+              titles={[
+                `${t('coin')}`.toUpperCase(), 
+                `${t('amount')}`.toUpperCase(), 
+                `${t('price')}`.toUpperCase(), 
+                "P2P ESCROW", 
+                `${t('actions')}`.toUpperCase(), 
+              ]}
               data={data}
             />
           ),

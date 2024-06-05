@@ -3,6 +3,8 @@ import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
+import { useTranslation } from "react-i18next";
+
 
 export const RecentTransaction = ({
   transactions,
@@ -98,10 +100,14 @@ export const RecentTransaction = ({
         }))
     : [];
 
+    const {t} = useTranslation();
+
+
   return (
     <Components.Global.Container direction="column" spacing={2}>
       <Mui.Typography variant="h6" fontWeight={900}>
-        Recent Transactions
+      {t('recentTransactions')}
+
       </Mui.Typography>
       <Mui.Stack
         direction={{ xs: "column", md: "row" }}
@@ -115,17 +121,17 @@ export const RecentTransaction = ({
           size="small"
           value={filter}
           onChange={handleChange}
-          placeholder="Filter records"
+          placeholder={`${t("filterRecords")}`}
         />
       </Mui.Stack>
       <Components.Global.ResponsiveTable
         titles={[
-          "Date",
-          "Type",
-          "Symbol",
-          "Amount",
-          "Transaction REF",
-          "Status",
+          `${t("date")}`,
+          `${t("type")}`,
+          `${t("symbol")}`,
+          `${t("amount")}`,
+          `${t("transactionREF")}`,
+          `${t("status")}`,
         ]}
         data={walletData}
       />

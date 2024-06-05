@@ -4,12 +4,16 @@ import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
 import * as Constants from "src/constants";
 import * as Hooks from "src/app/hooks";
+import { useTranslation } from "react-i18next";
+
 
 export const OrderBox = ({
   coinWalletDetails,
 }: {
   coinWalletDetails: Hooks.User.coinsWallet[];
 }) => {
+  const {t} = useTranslation();
+
   const navigate = Router.useNavigate();
   const { verified } = Hooks.User.useUserKYC(false);
   const { coin, type } = Router.useParams();
@@ -30,12 +34,10 @@ export const OrderBox = ({
       sx={{ py: 4, height: "100%" }}
     >
       <Mui.Typography variant="h5" fontWeight={900}>
-        P2P: Buy/Sell Your Asset Locally
+        P2P: {t('buySellYouAssetLocallyp2p')}
       </Mui.Typography>
       <Mui.Typography variant="body1">
-        Peer-to-peer exchange (or P2P exchange) is a marketplace where people
-        can trade asset directly with each other on their own terms, in
-        virtually any country.
+       {t('peerToPeerExchange')}
       </Mui.Typography>
       <Mui.Stack direction="row" spacing={2}>
         <Mui.Button
@@ -51,7 +53,7 @@ export const OrderBox = ({
             "&:hover": { borderWidth: 2 },
           }}
         >
-          <Mui.Typography variant="body1">New Order</Mui.Typography>
+          <Mui.Typography variant="body1">{t('newOrders')}</Mui.Typography>
         </Mui.Button>
 
         <Mui.Button
@@ -67,7 +69,7 @@ export const OrderBox = ({
             "&:hover": { borderWidth: 2 },
           }}
         >
-          <Mui.Typography variant="body1">My Orders</Mui.Typography>
+          <Mui.Typography variant="body1">{t('myOrders')}</Mui.Typography>
         </Mui.Button>
       </Mui.Stack>
     </Components.Global.Container>

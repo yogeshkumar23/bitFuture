@@ -5,6 +5,9 @@ import * as Router from "react-router-dom";
 import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Layouts from "src/app/layouts";
+import {useTranslation} from "react-i18next";
+
+
 
 export const MenuBar = ({
   check,
@@ -18,8 +21,21 @@ export const MenuBar = ({
 } & Mui.BoxProps) => {
   const [open, close] = React.useState(false);
   const { pathname } = Router.useLocation();
+  const {t} = useTranslation();
+
+  const Navigations = [{
+    name: `${t("dashboard")}`,
+    path: 'dashboard'
+  },
+  {
+    name: `${t("spot")}`,
+    path: 'spot'
+  }
+];
+
 
   const handleClose = () => close(!open);
+
 
   return (
     <Mui.Box {...props}>
@@ -49,15 +65,15 @@ export const MenuBar = ({
           <Layouts.Main.Views.ThemeSwitch />
         </Mui.Toolbar>
         <Mui.Divider sx={{ mb: 1 }} />
-        {Constants.Navigations.map((text, index) => (
+        {Navigations.map((element, index) => (
           <Mui.ListItem
             button
             key={index}
             component={Router.Link}
-            to={text.toLowerCase()}
+            to={element?.path?.toLowerCase()}
             onClick={handleClose}
             sx={
-              pathname.includes(text.toLowerCase())
+              pathname.includes(element?.path?.toLowerCase())
                 ? {
                     color: "primary.main",
                     borderRadius: 0,
@@ -70,7 +86,7 @@ export const MenuBar = ({
                 : { color: "text.secondary" }
             }
           >
-            {text}
+            {element?.name}
           </Mui.ListItem>
         ))}
       </Mui.Drawer>

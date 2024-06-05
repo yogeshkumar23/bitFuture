@@ -3,9 +3,20 @@ import * as Router from "react-router-dom";
 import * as Assets from "src/assets";
 import * as Components from "src/app/components";
 import * as Layouts from "src/app/layouts";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import LanguageIcon from '@mui/icons-material/Language';
 
 export const Main = () => {
   const { pathname } = Router.useLocation();
+  const [language, setLanguage] = React.useState('en');
+  const { i18n } = useTranslation();
+
+  const handleChange = (e: any) => {
+    setLanguage(e?.target?.value);
+    i18n.changeLanguage(e?.target?.value);
+  }
+
   return (
     <Mui.Grid container>
       <Mui.Grid
@@ -18,7 +29,43 @@ export const Main = () => {
           maxWidth={pathname.includes("terms-of-service") ? "lg" : "sm"}
           sx={{ px: { xs: 0, sm: 1 } }}
         >
-          <Components.Main.MainCenterLogo />
+          <Mui.Grid
+            width={"full"}
+            display={"flex"}
+            justifyContent={"space-between"}
+          >
+            <Components.Main.MainCenterLogo />
+
+            {/* Change Language Select Button */}
+            <Mui.Grid
+              display={"flex"}
+              justifyContent={"start"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
+            >
+              <Mui.Select
+                value={language}
+                onChange={handleChange}
+                sx={{
+                  color: "#000",
+                  // border: (theme) => (theme.palette.mode === "light" ? "2px solid white" : "2px solid black"),
+                  fontSize: '1rem',
+                  marginRight: "-30px",
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  },
+                  '& .MuiSelect-icon': {
+                    display: 'none',
+                  },
+
+                }}
+              >
+                <Mui.MenuItem value={"en"}>English</Mui.MenuItem>
+                <Mui.MenuItem value={"jp"}>Japanese</Mui.MenuItem>
+              </Mui.Select>
+              <LanguageIcon sx={{ fontSize: "22px", cursor: "pointer", color: "#e64388" }} />
+            </Mui.Grid>
+          </Mui.Grid>
           <Router.Outlet />
         </Mui.Container>
       </Mui.Grid>

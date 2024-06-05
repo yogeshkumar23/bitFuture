@@ -1,8 +1,13 @@
 import * as Mui from "@mui/material";
 import * as Assets from "src/assets";
+import { useTranslation } from "react-i18next"; 
 
-export const Header = () => (
-  <Mui.Paper
+export const Header = () => {
+
+  const {t} = useTranslation();
+
+  return (
+    <Mui.Paper
     component={Mui.Stack}
     spacing={3}
     sx={{
@@ -22,12 +27,12 @@ export const Header = () => (
     <Mui.Box sx={{ p: { md: 2 } }} />
     <Mui.Container maxWidth="sm" component={Mui.Stack} spacing={2}>
       <Mui.Typography variant="h5" sx={{ color: "#000" }}>
-        Complete KYC registration steps to start Buy and Sell your Assets.
+         {t("completeKYCregistration")}
       </Mui.Typography>
       <Mui.Typography variant="body1" sx={{ color: "#000" }}>
-        Enter the relevant KYC information on the following form to begin buying
-        and selling assets in a few simple steps.
+        {t("enterTheRelevantKYCInformation")}
       </Mui.Typography>
     </Mui.Container>
   </Mui.Paper>
-);
+  )
+}

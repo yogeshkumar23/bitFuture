@@ -4,9 +4,14 @@ import * as Assets from "src/assets";
 import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Pages from "src/app/pages";
+import * as ReactNext from "react-i18next";
 
-export const Header = ({ user }: { user: Contexts.userContext.User }) => (
-  <>
+export const Header = ({ user }: { user: Contexts.userContext.User }) => {
+
+  const {t} = ReactNext.useTranslation();
+
+  return (
+    <>
     <Mui.CardMedia
       component="img"
       src={Assets.Banner}
@@ -57,7 +62,7 @@ export const Header = ({ user }: { user: Contexts.userContext.User }) => (
               : `${Constants.API_CONFIG.base}account/register`
           }
         >
-          {Boolean(user?.email) ? "Deposit" : "Get Started"}
+          {Boolean(user?.email) ? `${t('deposit')}` : `${t('getStarted')}`}
         </Mui.Button>
         <Mui.Button
           id={Boolean(user?.email) ? "spot" : "contact"}
@@ -75,7 +80,7 @@ export const Header = ({ user }: { user: Contexts.userContext.User }) => (
             // display: Boolean(user?.email) ? "none" : "none",
           }}
         >
-          {Boolean(user?.email) ? "Buy" : "Contact Us"}
+          {Boolean(user?.email) ? `${t('buy')}` : `${t("contact")}`}
         </Mui.Button>
       </Mui.Stack>
       <Pages.Home.Views.CoinFloat
@@ -139,4 +144,5 @@ export const Header = ({ user }: { user: Contexts.userContext.User }) => (
       />
     </Mui.Stack>
   </>
-);
+  )
+}

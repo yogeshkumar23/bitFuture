@@ -1,6 +1,8 @@
 import * as Mui from "@mui/material";
 import React from "react";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
+
 
 export const ResponsiveTable = ({
   id,
@@ -21,6 +23,9 @@ export const ResponsiveTable = ({
   React.useEffect(() => {
     setPage(1);
   }, [data.length]);
+
+  const {t} = useTranslation();
+
 
   return (
     <>
@@ -69,7 +74,7 @@ export const ResponsiveTable = ({
                       color: Mui.colors.grey[300],
                     }}
                   >
-                    No Record Found
+                    {t('noRecordsFound')}
                   </Mui.Typography>
                 </Mui.TableCell>
               </Mui.TableRow>
@@ -96,7 +101,7 @@ export const ResponsiveTable = ({
             color: Mui.colors.grey[300],
           }}
         >
-          No Record Found
+          {t('noRecordsFound')}
         </Mui.Typography>
       )}
       <Mui.Stack
@@ -106,7 +111,7 @@ export const ResponsiveTable = ({
         sx={{ m: 2, display: rowPerPage !== 10 ? "none" : "flex" }}
       >
         <Mui.Typography variant="body1" id="totalDataCount">
-          Total: {count || data.length}
+        {t('total')}: {count || data.length}
         </Mui.Typography>
         <Mui.Pagination
           id="pageNo"

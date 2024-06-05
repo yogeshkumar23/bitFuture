@@ -8,6 +8,7 @@ import * as Components from "src/app/components";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import * as LanguageSelector from "react-i18next";
 
 export const SpotTable = ({
   prices,
@@ -35,6 +36,9 @@ export const SpotTable = ({
       `${Constants.API_CONFIG.binanceAPI}/ticker/24hr`
     ).then((res) => setStatics(res.data));
   }, []);
+
+  const {t} = LanguageSelector.useTranslation();
+
   return (
     <>
       <Mui.Table
@@ -57,10 +61,10 @@ export const SpotTable = ({
           }}
         >
           <Mui.TableRow>
-            <Mui.TableCell>Name</Mui.TableCell>
-            <Mui.TableCell>Last Price</Mui.TableCell>
-            <Mui.TableCell>24h Change</Mui.TableCell>
-            <Mui.TableCell>Market</Mui.TableCell>
+            <Mui.TableCell>{t('name')}</Mui.TableCell>
+            <Mui.TableCell>{t('lastPrice')}</Mui.TableCell>
+            <Mui.TableCell>24h {t('change')}</Mui.TableCell>
+            <Mui.TableCell>{t('market')}</Mui.TableCell>
             <Mui.TableCell></Mui.TableCell>
           </Mui.TableRow>
         </Mui.TableHead>
@@ -186,7 +190,7 @@ export const SpotTable = ({
                       : `spot/${coin.coin}_${coin.currency}`
                   }
                 >
-                  Buy
+                  {t('buy')}
                 </Mui.Button>
               </Mui.TableCell>
             </Mui.TableRow>
@@ -339,7 +343,7 @@ export const SpotTable = ({
                       }
                       sx={{ borderRadius: 10 }}
                     >
-                      Buy
+                      {t('buy')}
                     </Mui.Button>
                   </Mui.Stack>
                 </Mui.Grid>

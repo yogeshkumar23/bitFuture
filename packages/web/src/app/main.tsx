@@ -4,6 +4,7 @@ import * as Components from "src/app/components";
 import * as Providers from "src/app/providers";
 import * as Routes from "src/app/routes";
 import * as Themes from "src/theme";
+import "src/app/languages/language";
 
 export const Main = () => (
   <Router.BrowserRouter>

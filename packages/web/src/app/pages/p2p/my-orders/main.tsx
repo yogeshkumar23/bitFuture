@@ -7,8 +7,12 @@ import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const Main = () => {
+  const {t} = useTranslation();
+
   const { user } = React.useContext(Contexts.UserContext);
   const { pathname } = Router.useLocation();
   const { data: users } =
@@ -73,7 +77,7 @@ export const Main = () => {
             px: 3,
           }}
         >
-          My Orders
+          {t('myOrders')}
         </Mui.Button>
         <Mui.Button
           variant={
@@ -86,7 +90,7 @@ export const Main = () => {
             px: 3,
           }}
         >
-          Incoming Requests
+          {t('incomingRequest')}
         </Mui.Button>
         <Mui.Button
           variant={pathname.includes("my-requests") ? "contained" : "text"}
@@ -97,7 +101,7 @@ export const Main = () => {
             px: 3,
           }}
         >
-          Outgoing Requests
+          {t('outgoingRequest')}
         </Mui.Button>
       </Mui.ButtonGroup>
       {pathname.includes("my-orders") && (

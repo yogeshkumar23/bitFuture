@@ -4,6 +4,8 @@ import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
 import * as Constants from "src/constants";
 import * as Hooks from "src/app/hooks";
+import { useTranslation } from "react-i18next";
+
 
 export const AmountBox = ({
   coinWalletDetails,
@@ -18,6 +20,8 @@ export const AmountBox = ({
   mainCurrency: string;
   nativePrice: number;
 }) => {
+  const {t} = useTranslation();
+
   const navigate = Router.useNavigate();
   const data = amountWalletDetails?.find(
     ({ typeId }) => typeId === mainCurrency
@@ -71,7 +75,7 @@ export const AmountBox = ({
         noWrap
         sx={{ color: "#ffff", fontWeight: 900 }}
       >
-        Balance Details
+        {t('balanceDetails')}
       </Mui.Typography>
 
       <Mui.Stack
@@ -98,7 +102,7 @@ export const AmountBox = ({
           </Mui.IconButton>
           <Components.Global.StackLabel
             titleColor="#fff"
-            title="Total available balance:"
+            title={`${t("totalAvailableBalance")}:`}
             label={
               <Mui.Typography variant="h5" sx={{ color: "#ffff" }}>
                 <Components.Global.Format
@@ -130,7 +134,7 @@ export const AmountBox = ({
           </Mui.IconButton>
           <Components.Global.StackLabel
             titleColor="#fff"
-            title="Total asset value:"
+            title={`${t("totalAssetValue")}:`}
             label={
               <Mui.Typography variant="h5" sx={{ color: "#ffff" }}>
                 <Components.Global.Format
@@ -161,7 +165,7 @@ export const AmountBox = ({
             //   },
             // }}
           >
-            Deposit
+          {t('deposit')}
           </Mui.Button>
           <Mui.Button
             id="mainCurrencyWithdraw"
@@ -177,7 +181,7 @@ export const AmountBox = ({
             //   },
             // }}
           >
-            Withdraw
+           {t('withdraw')}
           </Mui.Button>
         </Mui.Stack>
       </Mui.Stack>

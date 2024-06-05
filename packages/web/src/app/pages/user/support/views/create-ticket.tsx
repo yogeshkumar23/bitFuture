@@ -5,8 +5,10 @@ import * as Contexts from "src/app/contexts";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
 import * as Validations from "src/app/validations";
+import { useTranslation } from "react-i18next";
 
 export const CreateTicket = () => {
+  const {t} = useTranslation();
   const { user } = React.useContext(Contexts.UserContext);
   const { ticket } = Hooks.Support.useTickets(user?.uid as string);
   const Submit = async (
@@ -32,7 +34,7 @@ export const CreateTicket = () => {
       sx={{ width: "100%" }}
     >
       <Mui.Typography variant="h6" sx={{ fontWeight: 1000 }}>
-        Create Ticket
+        {t('createTicket')}
       </Mui.Typography>
       <Formik.Formik
         initialValues={{
@@ -49,7 +51,7 @@ export const CreateTicket = () => {
               <Mui.Grid item xs={12}>
                 <Components.Form.FormField
                   type="text"
-                  label="Subject"
+                  label={ `${t("subject")}`}
                   name="subject"
                   size="medium"
                 />
@@ -57,7 +59,7 @@ export const CreateTicket = () => {
               <Mui.Grid item xs={12}>
                 <Components.Form.FormField
                   type="text"
-                  label="Message"
+                  label={ `${t("message")}`}
                   name="message"
                   size="medium"
                   multiline
@@ -66,7 +68,7 @@ export const CreateTicket = () => {
               </Mui.Grid>
               <Mui.Grid item xs={12}>
                 <Components.Form.CheckBox
-                  label="Metamask address change"
+                  label={ `${t("metamaskAddressChange")}`}
                   name="metamask"
                 />
                 <Mui.Alert
@@ -82,7 +84,7 @@ export const CreateTicket = () => {
                   size="large"
                   sx={{ height: "fit-content", width: "fit-content" }}
                 >
-                  Post Ticket
+                  {t('postTicket')}
                 </Components.Form.SubmitButton>
               </Mui.Grid>
             </Mui.Grid>

@@ -5,6 +5,8 @@ import * as Router from "react-router-dom";
 import * as Constants from "src/constants";
 import * as Components from "src/app/components";
 import * as Validations from "src/app/validations";
+import { useTranslation } from "react-i18next";
+
 
 export const PaymentDetails = ({
   variant,
@@ -15,6 +17,8 @@ export const PaymentDetails = ({
   updatePayment: (type: string, values: object) => Promise<void>;
   payment: any;
 }) => {
+  const { t } = useTranslation();
+
   const navigate = Router.useNavigate();
   const handleSave = async (
     { paymentType, ...paymentValues }: paymentDetails,
@@ -47,7 +51,7 @@ export const PaymentDetails = ({
         spacing={2}
         mb={2}
       >
-        <Mui.Typography variant="h5">Payment Details</Mui.Typography>
+        <Mui.Typography variant="h5">{t('paymentDetails')} </Mui.Typography>
         <Mui.Button
           id="editPaymentDetail"
           startIcon={<MuiIcons.EditOutlined />}
@@ -56,7 +60,7 @@ export const PaymentDetails = ({
           to="payment-edit"
           sx={{ display: variant === "edit" ? "none" : "flex" }}
         >
-          Edit
+          {t('edit')} 
         </Mui.Button>
       </Mui.Stack>
 
@@ -98,7 +102,7 @@ export const PaymentDetails = ({
               <Components.Form.SelectField
                 size="small"
                 name="paymentType"
-                label="Payment Type"
+                label={`${t('paymentType')}`}
                 disabled={isSubmitting}
                 sx={{
                   minWidth: { md: 200 },
@@ -138,7 +142,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$account_no`}
                 label={
                   <>
-                    Account no <span style={{ color: "red" }}>*</span>
+                   {t('accountNo')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -158,7 +162,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$account_name`}
                 label={
                   <>
-                    Account Name <span style={{ color: "red" }}>*</span>
+                   {t('accountName')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -178,7 +182,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$bank_name`}
                 label={
                   <>
-                    Bank Name <span style={{ color: "red" }}>*</span>
+                    {t('bankName')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -198,7 +202,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$bank_address`}
                 label={
                   <>
-                    Bank Address{" "}
+                    {t('bankAddress')}{" "}
                     <Mui.Typography variant="caption">
                       (Optional : based on Country/Region)
                     </Mui.Typography>
@@ -221,7 +225,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$ifsc_code`}
                 label={
                   <>
-                    IFSC Code{" "}
+                    {t('IFSCCode')}{" "}
                     <Mui.Typography variant="caption">
                       (Optional : based on Country/Region)
                     </Mui.Typography>
@@ -244,7 +248,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$sort_code`}
                 label={
                   <>
-                    Sort Code{" "}
+                    {t('SortCode')}{" "}
                     <Mui.Typography variant="caption">
                       (Optional : based on Country/Region)
                     </Mui.Typography>
@@ -267,7 +271,7 @@ export const PaymentDetails = ({
                 name={`bank_transfer$routing_number`}
                 label={
                   <>
-                    Routing Number{" "}
+                    {t('routingNumber')}{" "}
                     <Mui.Typography variant="caption">
                       (Optional : based on Country/Region)
                     </Mui.Typography>
@@ -309,7 +313,7 @@ export const PaymentDetails = ({
                 type="text"
                 label={
                   <>
-                    Email <span style={{ color: "red" }}>*</span>
+                    {t('email')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -345,7 +349,7 @@ export const PaymentDetails = ({
                 type="text"
                 label={
                   <>
-                    Email <span style={{ color: "red" }}>*</span>
+                    {t('email')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -363,7 +367,7 @@ export const PaymentDetails = ({
                 size="small"
                 name={`zelle$mobile_no`}
                 type="text"
-                label="Mobile No"
+                label={`${t('contactNumber')}`}
                 disabled={variant === "view" || isSubmitting}
               />
             </Mui.Grid>
@@ -381,7 +385,7 @@ export const PaymentDetails = ({
                 type="text"
                 label={
                   <>
-                    Name <span style={{ color: "red" }}>*</span>
+                    {t('name')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -424,7 +428,7 @@ export const PaymentDetails = ({
                 type="text"
                 label={
                   <>
-                    Name <span style={{ color: "red" }}>*</span>
+                    {t('name')} <span style={{ color: "red" }}>*</span>
                   </>
                 }
                 disabled={variant === "view" || isSubmitting}
@@ -484,7 +488,7 @@ export const PaymentDetails = ({
                 }}
               >
                 <Components.Form.SubmitButton sx={{ maxWidth: 150 }}>
-                  Save Changes
+                {t('saveChanges')}
                 </Components.Form.SubmitButton>
                 <Mui.Button
                   sx={{ width: 150 }}
@@ -492,7 +496,7 @@ export const PaymentDetails = ({
                   component={Router.Link}
                   to=".."
                 >
-                  Discard
+                  {t('discard')}
                 </Mui.Button>
               </Mui.Stack>
             </Mui.Grid>

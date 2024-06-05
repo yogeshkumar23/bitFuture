@@ -8,6 +8,7 @@ import * as Components from "src/app/components";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import * as LanguageSelector from "react-i18next";
 
 export const MarketTrends = ({
   user,
@@ -55,6 +56,8 @@ export const MarketTrends = ({
     `reviews`
   ).collectionSnapshot();
 
+  const {t} = LanguageSelector.useTranslation();
+
   return trades === undefined ||
     users === undefined ||
     reviews === undefined ? (
@@ -80,7 +83,7 @@ export const MarketTrends = ({
         }}
       >
         <Mui.Typography variant="h4" sx={{ pb: 3, fontWeight: 900 }}>
-          Trade Center
+          {t('tradeCenter')}
         </Mui.Typography>
         <Mui.ButtonGroup
           id="tradeNavigation"
@@ -103,7 +106,7 @@ export const MarketTrends = ({
               fontWeight: 700,
             }}
           >
-            Spot
+            {t('spot')}
             {value === "spot" && (
               <Mui.Box
                 sx={{
@@ -141,7 +144,7 @@ export const MarketTrends = ({
               />
             )}
           </Mui.Button>
-          <Mui.Button
+          {/* <Mui.Button
             variant="text"
             onClick={() => setValue("token")}
             sx={{
@@ -164,7 +167,7 @@ export const MarketTrends = ({
                 }}
               />
             )}
-          </Mui.Button>
+          </Mui.Button> */}
         </Mui.ButtonGroup>
         {
           {
@@ -217,7 +220,7 @@ export const MarketTrends = ({
             variant="contained"
             endIcon={<MuiIcons.ArrowForwardIos fontSize="small" />}
           >
-            View More Markets
+            {t('viewMoreMarkets')}
           </Mui.Button>
         </Mui.Typography>
       </Components.Global.Container>

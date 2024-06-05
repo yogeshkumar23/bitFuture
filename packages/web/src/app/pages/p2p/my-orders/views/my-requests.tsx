@@ -2,6 +2,8 @@ import * as Mui from "@mui/material";
 import * as MuiIcons from "@mui/icons-material";
 import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
+
 
 export const MyRequests = ({
   trades,
@@ -9,6 +11,8 @@ export const MyRequests = ({
   trades: (p2pTrade & p2pTradeRequest)[];
 }) => {
   const navigate = Router.useNavigate();
+  const {t} = useTranslation();
+
 
   const requestedData = trades.map((trade) => ({
     uid: trade.username,
@@ -101,18 +105,18 @@ export const MyRequests = ({
   return (
     <Components.Global.Container direction="column" spacing={2}>
       <Mui.Typography variant="h5" fontWeight={900}>
-      Outgoing Requests
+      {t('outgoingRequest')}
       </Mui.Typography>
       <Components.Global.ResponsiveTable
         titles={[
-          "NAME",
-          "REQUESTED DATE",
-          "AD TYPE",
-          "TRADE PAIR",
-          "QUANTITY",
-          "PAYMENT TYPE",
-          "STATUS",
-          "ACTIONS",
+          `${t('name')}`.toUpperCase(),
+          `REQUESTED ${t('date')}`.toUpperCase(),
+          `AD ${t('type')}`,
+          `${t('trade')}  ${t('pair')}`.toUpperCase(),
+          `${t('quantity')}`.toUpperCase(),
+          `${t('payment')}  ${t('type')}`.toUpperCase(),
+          `${t('status')}`.toUpperCase(),
+          `${t('actions')}`.toUpperCase(),
         ]}
         data={requestedData}
       />

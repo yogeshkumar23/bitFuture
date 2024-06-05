@@ -1,10 +1,11 @@
 export const API_CONFIG = {
-  base: "/",
-  baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${
-    import.meta.env.VITE_API_IP
-  }:${import.meta.env.VITE_API_PORT}${
-    import.meta.env.MODE === "production" ? "/" : "/"
-  }`,
+  base: "/bitfuture-web/",
+  // baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${
+  //   import.meta.env.VITE_API_IP
+  // }:${import.meta.env.VITE_API_PORT}${
+  //   import.meta.env.MODE === "production" ? "/" : "/"
+  // }`,
+  baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${import.meta.env.VITE_API_IP}${import.meta.env.MODE === "production" ? "/bitfuture/api" : "/bitfuture/api"}`,
   binanceSocketURL: "wss://stream.binance.com:9443/stream",
   kucoinSocketURL: `wss://ws-api-spot.kucoin.com?token=`,
   publicCoin: "https://api.coinstats.app/public/v1",

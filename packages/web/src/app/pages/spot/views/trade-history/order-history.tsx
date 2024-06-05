@@ -5,6 +5,8 @@ import * as Constants from "src/constants";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const OrderHistory = ({
   trades,
@@ -15,6 +17,8 @@ export const OrderHistory = ({
 }) => {
   const { contentCopy } = Hooks.User.useUtils();
   const { pathname } = Router.useLocation();
+  const {t} = useTranslation();
+
 
   const data = trades
     ? trades
@@ -177,16 +181,16 @@ export const OrderHistory = ({
   return pathname?.includes("dashboard") ? (
     <Components.Global.ResponsiveTable
       titles={[
-        "Trade ID",
-        "Date",
-        "Pair",
-        "Type",
-        "Side",
-        "Price",
-        "Quantity",
+        `${t('tradeID')}`,
+        `${t('date')}`,
+        `${t('pair')}`,
+        `${t('type')}`,
+        `${t('side')}`,
+        `${t('price')}`,
+        `${t('quantity')}`,
         // "Remaining",
-        "Amount",
-        "Commission",
+        `${t('amount')}`,
+        `${t('commission')}`,
         // "Total",
         // "Trigger Conditions",
         // "Status",
@@ -196,19 +200,19 @@ export const OrderHistory = ({
   ) : (
     <Pages.Spot.Views.Table
       titles={[
-        "Trade ID",
-        "Date",
-        // "Pair",
-        "Type",
-        "Side",
-        "Price",
-        "Quantity",
+        `${t('tradeID')}`,
+        `${t('date')}`,
+        // `${t('pair')}`,
+        `${t('type')}`,
+        `${t('side')}`,
+        `${t('price')}`,
+        `${t('quantity')}`,
         // "Remaining",
-        "Amount",
+        `${t('amount')}`,
         ...(type === "trades" ? ["Commission"] : []),
         // "Total",
         // "Trigger Conditions",
-        "Status",
+        `${t('status')}`,
       ]}
       data={data}
     />

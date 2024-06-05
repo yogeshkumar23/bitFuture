@@ -5,11 +5,14 @@ import * as Layouts from "src/app/layouts";
 import * as Constants from "src/constants";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
+import * as LanguageSelector from "react-i18next";
 
 export const Footer = ({ auth }: { auth: boolean }) => {
   const check = Hooks.Design.useRouteCheck([
     `${Constants.API_CONFIG.base}spot/:coinId`,
   ]);
+
+  const {t} = LanguageSelector.useTranslation();
 
   return (
     <>
@@ -26,39 +29,39 @@ export const Footer = ({ auth }: { auth: boolean }) => {
         }}
         spacing={3}
       >
-        <Mui.Grid item xs={12} md={4}>
+        <Mui.Grid item xs={10} md={2}>
           <Mui.Stack spacing={2}>
             <Components.Main.MainCenterLogo
-              sx={{ height: 80, width: 170, mt: -7 }}
+              sx={{ height: 80, width: 170, mt: -5 }}
             />
             <Mui.Typography
               variant="body1"
-              sx={{ width: { lg: "65%" }, lineHeight: 2 }}
+              sx={{ width: { lg: "100%" }, lineHeight: 2 }}
             >
-              Doo Exchange is a pioneering trading platform that has gained the
+              BitFuture Exchange is a pioneering trading platform that has gained the
               trust of users all over the world, given our exceptional digital
               assets exchange services.
             </Mui.Typography>
           </Mui.Stack>
           <Mui.Box>
-            <Mui.IconButton>
+            <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
               <MuiIcons.Twitter />
             </Mui.IconButton>
-            <Mui.IconButton>
+            <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
               <MuiIcons.Facebook />
             </Mui.IconButton>
-            <Mui.IconButton>
+            <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
               <MuiIcons.Instagram />
             </Mui.IconButton>
-            <Mui.IconButton>
+            <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
               <MuiIcons.YouTube />
             </Mui.IconButton>
-            <Mui.IconButton>
+            <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
               <MuiIcons.Telegram />
             </Mui.IconButton>
           </Mui.Box>
         </Mui.Grid>
-        <Mui.Grid item xs={12} md={2}>
+        <Mui.Grid item xs={8} md={2}>
           <Mui.Stack spacing={1}>
             <Mui.Typography
               variant="h6"
@@ -66,7 +69,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               fontWeight={900}
               mb={2}
             >
-              Quick Links
+              {t("quickLinks")}
             </Mui.Typography>
             <Mui.Typography
               variant="body1"
@@ -75,7 +78,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               color="text.primary"
               sx={{ textDecoration: "none" }}
             >
-              Help Center
+              {t("helpCenter")}
             </Mui.Typography>
             <Mui.Typography
               variant="body1"
@@ -84,7 +87,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               color="text.primary"
               sx={{ textDecoration: "none" }}
             >
-              Terms Of Service
+             {t("termOfService")}
             </Mui.Typography>
             <Mui.Typography
               variant="body1"
@@ -93,11 +96,53 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               color="text.primary"
               sx={{ textDecoration: "none" }}
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Mui.Typography>
           </Mui.Stack>
         </Mui.Grid>
-        <Mui.Grid item xs={12} md={3}>
+
+        {/* Company Details */}
+        <Mui.Grid item xs={10} md={2}>
+          <Mui.Stack spacing={1}>
+            <Mui.Typography
+              variant="h6"
+              color="primary"
+              fontWeight={900}
+              mb={2}
+            >
+              {t("company")}
+            </Mui.Typography>
+            <Mui.Typography
+              variant="body1"
+              component={Router.Link}
+              to="help-center"
+              color="text.primary"
+              sx={{ textDecoration: "underline" }}
+            >
+             Future Capital Ventures
+            </Mui.Typography>
+            <Mui.Typography
+              variant="body1"
+              component={Router.Link}
+              to={auth ? "terms-of-service" : "account/terms-of-service"}
+              color="text.primary"
+              sx={{ textDecoration: "none" }}
+            >
+              Bloc Office Hub, Fifth Floor, Santa Maria Business District, Panama CIty 801, Panama
+            </Mui.Typography>
+            {/* <Mui.Typography
+              variant="body1"
+              component={Router.Link}
+              to={auth ? "privacy-policy" : "account/privacy-policy"}
+              color="text.primary"
+              sx={{ textDecoration: "none" }}
+            >
+              Privacy Policy
+            </Mui.Typography> */}
+          </Mui.Stack>
+        </Mui.Grid>
+
+        <Mui.Grid item xs={8} md={3}>
           <Mui.Stack spacing={2}>
             <Mui.Typography
               color="primary"
@@ -105,7 +150,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               fontWeight={900}
               mb={2}
             >
-              Contact
+              {t("contact")}
             </Mui.Typography>
             <Mui.Stack direction="row" alignItems="center" spacing={2}>
               <MuiIcons.MailOutlined fontSize="small" color="primary" />
@@ -116,7 +161,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
                 color="text.primary"
                 sx={{ textDecoration: "none" }}
               >
-                support@DooWorld.com
+                support@bitfuture.pro
               </Mui.Typography>
             </Mui.Stack>
             <Mui.Stack direction="row" alignItems="center" spacing={1}>
@@ -126,7 +171,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
                 color="text.primary"
                 sx={{ textDecoration: "none" }}
               >
-                +221-0000 0000
+                +918-0000 0001
               </Mui.Typography>
             </Mui.Stack>
           </Mui.Stack>
@@ -139,10 +184,10 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               fontWeight={900}
               mb={2}
             >
-              Subscribe Newsletter
+              {t("subscribeNewsLetter")}
             </Mui.Typography>
             <Mui.Typography variant="body1">
-              Keep yourself up to date. Touch base with us.
+            {t("KeepYourselfUpToDate")}
             </Mui.Typography>
             <Layouts.Main.Views.Subscribe />
           </Mui.Stack>
@@ -157,7 +202,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
           p: 3,
         }}
       >
-        © Copyright {new Date().getFullYear()} by DooWorld. All rights reserved.
+        © Copyright {new Date().getFullYear()} by BitfutureWorld. All rights reserved.
       </Mui.Typography>
     </>
   );

@@ -21,6 +21,8 @@ export const Content = () => (
       name="email"
       type="text"
       size="medium"
+      placeholder="No Email provided in the login..."
+      disabled
     />
     <Components.Form.SubmitButton size="large" sx={{ fontWeight: "bold" }}>
       Reset Password

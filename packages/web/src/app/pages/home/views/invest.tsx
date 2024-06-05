@@ -39,7 +39,7 @@ export const Invest = () => (
           pt: 5,
         }}
       >
-        Why Doo World?
+        Why Bitfuture World?
       </Mui.Typography>
       <Mui.Typography
         variant="h6"
@@ -50,7 +50,7 @@ export const Invest = () => (
         }}
       >
         The World’s Digital assets market alone is valued above $3 Trillion, but
-        with so much limitation to access these different asset classes; Doo
+        with so much limitation to access these different asset classes; Bitfuture
         World provides a tremendous gateway to a whole new dimension where you
         can explore the gains of these Universal Assets.
       </Mui.Typography>

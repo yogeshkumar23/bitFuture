@@ -8,6 +8,8 @@ import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const Table = ({
   p2pCurrency,
@@ -16,6 +18,8 @@ export const Table = ({
   p2pCurrency: string[];
   coinWalletDetails: Hooks.User.coinsWallet[];
 }) => {
+  const {t} = useTranslation();
+
   const [expiry, setExpiry] = React.useState(0);
   const [filter, setFilter] = React.useState({
     amount: "" as unknown as number,
@@ -136,12 +140,12 @@ export const Table = ({
       />
       <Components.Global.ResponsiveTable
         titles={[
-          "ITEM",
-          "ADVERTISERS",
-          "PRICE/ITEM",
-          "TRADE LIMIT",
-          "PAYMENT",
-          "TRADE",
+          `${t('item')}`.toUpperCase(),
+          `${t('advertiser')}`.toUpperCase(),
+          `${t('priceItems')}`.toUpperCase(),
+          `${t('tradeLimit')}`.toUpperCase(),
+          `${t('payment')}`.toUpperCase(),
+          `${t('trade')}`.toUpperCase(),
         ]}
         data={data}
       />

@@ -5,6 +5,7 @@ import * as Components from "src/app/components";
 import * as Constants from "src/constants";
 import * as Contexts from "src/app/contexts";
 import * as Hooks from "src/app/hooks";
+import * as ReactNext from "react-i18next";
 
 export const P2POrderTable = ({
   trades,
@@ -16,8 +17,12 @@ export const P2POrderTable = ({
   reviews: p2p_review[];
   users: Hooks.User.UseUser.User[];
   user: Contexts.userContext.User | undefined;
-}) => (
-  <>
+}) => {
+
+  const {t} = ReactNext.useTranslation();
+
+  return (
+    <>
     <Mui.Table
       stickyHeader
       component={Mui.Paper}
@@ -38,12 +43,12 @@ export const P2POrderTable = ({
         }}
       >
         <Mui.TableRow>
-          <Mui.TableCell>Item</Mui.TableCell>
-          <Mui.TableCell>Advertiser</Mui.TableCell>
-          <Mui.TableCell>Price/Item</Mui.TableCell>
-          <Mui.TableCell>Trade Limit</Mui.TableCell>
-          <Mui.TableCell>Payment Method</Mui.TableCell>
-          <Mui.TableCell>Ratings</Mui.TableCell>
+          <Mui.TableCell>{t('item')}</Mui.TableCell>
+          <Mui.TableCell>{t('advertiser')}</Mui.TableCell>
+          <Mui.TableCell>{t("priceItems")}</Mui.TableCell>
+          <Mui.TableCell>{t("tradeLimit")}</Mui.TableCell>
+          <Mui.TableCell>{t('payment')} {t('method')}</Mui.TableCell>
+          <Mui.TableCell>{t("rating")}</Mui.TableCell>
           <Mui.TableCell></Mui.TableCell>
         </Mui.TableRow>
       </Mui.TableHead>
@@ -160,7 +165,7 @@ export const P2POrderTable = ({
                 p: 5,
               }}
             >
-              No Orders available in Market
+             {t("noOrderAvailableInTheMarket")}
             </Mui.Typography>
           </Mui.TableCell>
         </Mui.TableRow>
@@ -326,9 +331,10 @@ export const P2POrderTable = ({
             p: 5,
           }}
         >
-          No Orders available in Market
+          {t('noOrderAvailableInTheMarket')}
         </Mui.Typography>
       )}
     </Mui.Box>
   </>
-);
+  )
+}

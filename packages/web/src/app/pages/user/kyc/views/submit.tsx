@@ -1,7 +1,8 @@
 import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
 
-const steps = ["Contact Details", "Document Details", "Residential Address"];
+// const steps = ["Contact Details", "Document Details", "Residential Address"];
 
 export const SubmitCard = ({
   activeStep,
@@ -13,8 +14,15 @@ export const SubmitCard = ({
   idVerify?: number;
   addressVerify?: number;
   submitted?: boolean;
-}) => (
-  <Components.Global.Container
+}) => {
+
+  const {t} = useTranslation();
+
+const steps = [`${t("contactDetails")}`, `${t("documentDetails")}`, `${t("residentialAddress")}`];
+  
+   
+  return (
+    <Components.Global.Container
     id="kycSubmit"
     justifyContent="center"
     sx={{
@@ -60,7 +68,7 @@ export const SubmitCard = ({
           disableRipple
           disableElevation
         >
-          Verified
+         {t("verified")}
         </Mui.Button>
       ) : (
         <Components.Form.SubmitButton
@@ -71,7 +79,7 @@ export const SubmitCard = ({
           disabled={submitted}
         >
           {submitted
-            ? "Details Submitted Not Verified"
+            ? `${t("detailsSubmittedNotVerified")}`
             : activeStep === steps.length
             ? "Submit For Verification"
             : "Next"}
@@ -79,4 +87,5 @@ export const SubmitCard = ({
       )}
     </Mui.Stack>
   </Components.Global.Container>
-);
+  )
+}

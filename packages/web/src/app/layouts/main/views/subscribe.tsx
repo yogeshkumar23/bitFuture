@@ -3,9 +3,11 @@ import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
 import * as Hooks from "src/app/hooks";
 import * as Validations from "src/app/validations";
+import { useTranslation } from 'react-i18next';
 
 export const Subscribe = () => {
   const { subscribe } = Hooks.Support.useContact();
+  const {t} = useTranslation();
   return (
     <Formik.Formik
       initialValues={{ email: "" }}
@@ -17,7 +19,7 @@ export const Subscribe = () => {
           <Components.Form.FormField
             size="medium"
             name="email"
-            placeholder="Enter your email"
+            placeholder={`${t('enterYourEmail')}`}
           />
           <Components.Form.SubmitButton
             size="large"
@@ -27,7 +29,7 @@ export const Subscribe = () => {
               fontWeight: 900,
             }}
           >
-            Subscribe
+            {t("subscribe")}
           </Components.Form.SubmitButton>
         </Mui.Stack>
       )}

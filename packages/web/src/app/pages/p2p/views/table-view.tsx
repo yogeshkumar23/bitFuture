@@ -2,10 +2,14 @@ import * as Mui from "@mui/material";
 import * as Router from "react-router-dom";
 import * as Components from "src/app/components";
 import * as Pages from "src/app/pages";
+import { useTranslation } from "react-i18next";
+
 
 export const TableView = ({ p2pCoins }: { p2pCoins: string[] }) => {
   const { pathname } = Router.useLocation();
   const { userId, coin, type } = Router.useParams();
+  const {t} = useTranslation();
+
 
   return (
     <Components.Global.Container
@@ -14,7 +18,7 @@ export const TableView = ({ p2pCoins }: { p2pCoins: string[] }) => {
       sx={{ minHeight: { md: 700 } }}
     >
       <Mui.Typography variant="h6" fontWeight={800}>
-        {userId ? "P2P Trades" : "P2P Trading"}
+        {userId ? "P2P Trades" : `P2P ${t('trading')}`}
       </Mui.Typography>
       <Mui.ButtonGroup
         id="orderType"
@@ -31,7 +35,7 @@ export const TableView = ({ p2pCoins }: { p2pCoins: string[] }) => {
           variant={pathname.includes("buy") ? "contained" : "text"}
           color={pathname.includes("buy") ? "success" : "secondary"}
         >
-          Buy
+          {t('buy')}
         </Mui.Button>
         <Mui.Button
           component={Router.Link}
@@ -39,7 +43,7 @@ export const TableView = ({ p2pCoins }: { p2pCoins: string[] }) => {
           variant={pathname.includes("sell") ? "contained" : "text"}
           color={pathname.includes("sell") ? "error" : "secondary"}
         >
-          Sell
+          {t('sell')}
         </Mui.Button>
       </Mui.ButtonGroup>
       <Mui.Stack

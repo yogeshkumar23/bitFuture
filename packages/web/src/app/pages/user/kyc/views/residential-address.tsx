@@ -1,8 +1,13 @@
 import * as Mui from "@mui/material";
 import * as Components from "src/app/components";
+import { useTranslation } from "react-i18next";
 
-export const ResidentialAddress = ({ disabled }: { disabled?: boolean }) => (
-  <Components.Global.Container
+export const ResidentialAddress = ({ disabled }: { disabled?: boolean }) => {
+
+  const {t} = useTranslation();
+
+  return (
+    <Components.Global.Container
     id="addressDetail"
     sx={{
       maxWidth: { xs: "100%", md: 350 },
@@ -11,7 +16,7 @@ export const ResidentialAddress = ({ disabled }: { disabled?: boolean }) => (
     }}
     customTitle={
       <Mui.Typography variant="h6" color="primary.main" fontWeight="bold">
-        Residential Address
+        {t('residentailAddress')}
       </Mui.Typography>
     }
   >
@@ -20,7 +25,7 @@ export const ResidentialAddress = ({ disabled }: { disabled?: boolean }) => (
         <Components.Form.SelectField
           size="small"
           name="addressDocumentType"
-          label="Type of document"
+          label={`${t('typeOfDocument')}`}
           defaultValue={0}
           disabled={disabled}
         >
@@ -49,10 +54,11 @@ export const ResidentialAddress = ({ disabled }: { disabled?: boolean }) => (
             height: 200,
             width: "inherit",
           }}
-          label="Upload document"
+          label={`${t('uploadDocument')}`}
           disabled={disabled}
         />
       </Mui.Grid>
     </Mui.Grid>
   </Components.Global.Container>
-);
+  )
+}
