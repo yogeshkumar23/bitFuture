@@ -27,6 +27,7 @@ export const Subscribe = () => {
               width: "fit-content",
               height: "fit-content",
               fontWeight: 900,
+              fontSize: 14
             }}
           >
             {t("subscribe")}

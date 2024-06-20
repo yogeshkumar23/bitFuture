@@ -93,31 +93,31 @@ export const Footer = () => {
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.PlaceAnOrder : Assets.Strategy}
-          title={index ? `${t('PlaceAnOrder')}` : "Post an Order"}
+          title={index ? `${t('PlaceAnOrder')}` : `${t('postAnOrder')}`}
           content={
             index
               ? `${t('afterChoosingTheAssets')}`
-              : `After choosing the asset that you want to sell; post your "sell order" based on your sale parameters and trade terms or pick from the list of buyers within the region you wish to trade in and initiate trade.`
+              : `${t('afterChooseingTheAssetThatYouWantToSell')}`
           }
         />
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.PayTheSeller : Assets.Decide}
-          title={index ? `${t('payTheSeller')}` : "Receive Payment"}
+          title={index ? `${t('payTheSeller')}` : `${t('receivePayment')}`}
           content={
             index
               ? `${t('makeYourPaymentThrough')}`
-              : `Wait to Receive payment in the right external account or right payment channel that you have specified within the time frame that you have given.`
+              : `${t('waitToReceivePayment')}`
           }
         />
         <Components.Global.InfoCard
           imageBackground
           image={index ? Assets.GetCrypto : Assets.Fill}
-          title={index ? `${t('getYourAssets')}` : "Get your Cash"}
+          title={index ? `${t('getYourAssets')}` : `${t('getYourCash')}`}
           content={
             index
               ? `${t('oncePaymentHasBeenConfirm')}`
-              : `Once payment has been confirmed in your external account, initiate "release" so that asset's ownership would be rightfully transfered to the Buyer.`
+              : `${t('oncePaymentHasBeenConfirmed')}`
           }
         />
       </Mui.Stack>

@@ -77,6 +77,12 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 afterChoosingTheAssets: `After choosing the asset that you want to purchase; pick a seller from the list of sellers within the region you wish to trade in or post your own "Buy order" and initiate trade.`,
                 makeYourPaymentThrough: "Make payment through the right payment method to the seller based on seller's trade terms and general P2P guidelines and confirm when payment has been made.",
                 noOrderAvailableInTheMarket: "No Orders available in Market",
+                postAnOrder: "Post an Order",
+                afterChooseingTheAssetThatYouWantToSell: `After choosing the asset that you want to sell; post your "sell order" based on your sale parameters and trade terms or pick from the list of buyers within the region you wish to trade in and initiate trade.`,
+                receivePayment: "Receive Payment",
+                waitToReceivePayment: "Wait to Receive payment in the right external account or right payment channel that you have specified within the time frame that you have given.",
+                getYourCash: "Get your Cash",
+                oncePaymentHasBeenConfirmed: `Once payment has been confirmed in your external account, initiate "release" so that asset's ownership would be rightfully transfered to the Buyer.`,
 
                 // Login page
                 email: "Email",
@@ -124,24 +130,24 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
 
                 // Profile
                 edit: "Edit",
-                personalDetails:	"Personal Details",
-                editProfile:	"Edit Profile",
-                contactNumber:	"Contact Number",
-                photo:	"Photo",
-                portfolio:	"Portfolio",
-                paymentDetails:	"Payment Details",
-                paymentType:	"Payment Type",
+                personalDetails: "Personal Details",
+                editProfile: "Edit Profile",
+                contactNumber: "Contact Number",
+                photo: "Photo",
+                portfolio: "Portfolio",
+                paymentDetails: "Payment Details",
+                paymentType: "Payment Type",
                 accountNo: "Account Number",
-                accountName:	"Account Name",
-                bankName:	"Bank Name",
+                accountName: "Account Name",
+                bankName: "Bank Name",
                 bankAddress: "Bank Address",
-                IFSCCode:	"IFSC Code",
-                SortCode:	"Sort Code",
+                IFSCCode: "IFSC Code",
+                SortCode: "Sort Code",
                 routingNumber: "Routing Number",
                 securityDetails: "Security Details",
                 twoFactorAuthentication: "Two-Factor Authentication",
-                enable:	"Enable",
-                disable	:"Disable",
+                enable: "Enable",
+                disable: "Disable",
                 remove: "Remove",
                 discard: "Discard",
                 saveChanges: "Save Changes",
@@ -165,12 +171,16 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
 
                 // Help Center
                 ticketHistory: "Ticket History",
-                noTicketsFound:	"No Tickets Found",
+                noTicketsFound: "No Tickets Found",
                 createTicket: "Create Ticket",
                 subject: "Subject",
-                message	: "Message",
+                message: "Message",
                 metamaskAddressChange: "Metamask address change",
                 postTicket: "Post Ticket",
+
+                coin: "Coin",
+                p2pEscrow: "P2P ESCROW"
+
             }
         },
 
@@ -245,6 +255,13 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 afterChoosingTheAssets: "購入したい資産を選択した後、取引したい地域の売り手リストから売り手を選ぶか、自分で「買い注文」を投稿して取引を開始することができます。",
                 makeYourPaymentThrough: "売り手の取引条件と一般的なP2Pガイドラインに基づき、適切な支払い方法で売り手に支払いを行い、支払いが完了したことを確認してください。",
                 noOrderAvailableInTheMarket: "マーケットで注文できません",
+                postAnOrder: "売り注文を出す",
+                afterChooseingTheAssetThatYouWantToSell: "売りたい資産を選択した後、売却パラメータと取引条件に基づいて「売り注文」を投稿するか、取引を希望する地域内のバイヤーのリストから選択して取引を開始してください。",
+                receivePayment: "支払いを受け取る",
+                waitToReceivePayment: "指定した時間内に、指定した外部口座または支払い方法で支払いを受け取るのをお待ちください。",
+                getYourCash: "金銭を受け取る",
+                oncePaymentHasBeenConfirmed: "外部口座で支払いが確認されたら、「リリース」を開始し、資産の所有権がバイヤーに譲渡されます。",
+
 
                 // Login
 
@@ -293,24 +310,24 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
 
                 // Profile
                 edit: "編集",
-                personalDetails:	"詳細情報",
-                editProfile:	"プロフィール編集",
-                contactNumber:	"連絡先番号",
-                photo:	"写真",
-                portfolio:	"ポートフォリオ",
-                paymentDetails:	"支払情報",
-                paymentType:	"支払種類",
+                personalDetails: "詳細情報",
+                editProfile: "プロフィール編集",
+                contactNumber: "連絡先番号",
+                photo: "写真",
+                portfolio: "ポートフォリオ",
+                paymentDetails: "支払情報",
+                paymentType: "支払種類",
                 accountNo: "アカウント番号",
-                accountName:	"アカウント名",
-                bankName:	"銀行名",
+                accountName: "アカウント名",
+                bankName: "銀行名",
                 bankAddress: "銀行住所",
-                IFSCCode:	"IFSCコード",
-                SortCode:	"ソートコード",
+                IFSCCode: "IFSCコード",
+                SortCode: "ソートコード",
                 routingNumber: "ルーティング番号",
                 securityDetails: "セキュリティ詳細",
                 twoFactorAuthentication: "２段階認証",
-                enable:	"有効にする",
-                disable	:"無効にする",
+                enable: "有効にする",
+                disable: "無効にする",
                 remove: '取り除く',
                 discard: "破棄",
                 saveChanges: "変更内容を保存",
@@ -334,13 +351,15 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
 
                 // Help Center
                 ticketHistory: "チケット履歴（0)",
-                noTicketsFound:	"チケットが見つかりません",
+                noTicketsFound: "チケットが見つかりません",
                 createTicket: "チケットを作成",
                 subject: "件名",
-                message	: "メッセージ",
+                message: "メッセージ",
                 metamaskAddressChange: "メタマスクのアドレス変更",
                 postTicket: "チケットを投稿する",
 
+                coin: 'コイン',
+                p2pEscrow: "P2Pエスクロー"
             }
         }
     }

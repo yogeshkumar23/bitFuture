@@ -213,7 +213,7 @@ export const TableCard = ({
                 `${t('coin')}`.toUpperCase(), 
                 `${t('amount')}`.toUpperCase(), 
                 `${t('price')}`.toUpperCase(), 
-                "P2P ESCROW", 
+                `${t('p2pEscrow')}`, 
                 `${t('actions')}`.toUpperCase(), 
               ]}
               data={data}

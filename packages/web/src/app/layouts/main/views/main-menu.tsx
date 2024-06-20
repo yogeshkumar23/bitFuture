@@ -105,8 +105,8 @@ export const MainMenu = ({
             color: !trigger && check ? "#fff" : "text.secondary",
             // color: (theme) => (theme.palette.mode === "light" ? "#000" : "#fff"),
             // border: (theme) => (theme.palette.mode === "light" ? "2px solid white" : "2px solid black"),
-            fontSize: '1rem',
-            marginRight: "-30px",
+            fontSize: 14,
+            marginRight: "-25px",
             '& .MuiOutlinedInput-notchedOutline': {
               border: 'none',
             },
@@ -116,10 +116,10 @@ export const MainMenu = ({
 
           }}
         >
-          <Mui.MenuItem value={"en"}>English</Mui.MenuItem>
-          <Mui.MenuItem value={"jp"}>Japanese</Mui.MenuItem>
+          <Mui.MenuItem sx={{fontSize: 12}} value={"en"}>English</Mui.MenuItem>
+          <Mui.MenuItem sx={{fontSize: 12}} value={"jp"}>Japanese</Mui.MenuItem>
         </Mui.Select>
-        <LanguageIcon sx={{fontSize: "28px", cursor: "pointer", color: !trigger && check ? "#fff" : "text.secondary",}}/>
+        <LanguageIcon sx={{fontSize: "20px", cursor: "pointer", color: !trigger && check ? "#fff" : "text.secondary",}}/>
       </Mui.Grid>
       <Mui.Stack direction="row" alignItems="center" spacing={1}>
         <Layouts.Main.Views.Notification check={check} trigger={trigger} />

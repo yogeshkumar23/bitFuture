@@ -34,14 +34,14 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Components.Main.MainCenterLogo
               sx={{ height: 80, width: 170, mt: -5 }}
             />
-            <Mui.Typography
+            {/* <Mui.Typography
               variant="body1"
               sx={{ width: { lg: "100%" }, lineHeight: 2 }}
             >
               BitFuture Exchange is a pioneering trading platform that has gained the
               trust of users all over the world, given our exceptional digital
               assets exchange services.
-            </Mui.Typography>
+            </Mui.Typography> */}
           </Mui.Stack>
           <Mui.Box>
             <Mui.IconButton sx={{width: "1rem", px: 2.5}}>
@@ -67,6 +67,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               variant="h6"
               color="primary"
               fontWeight={900}
+              fontSize={14}
               mb={2}
             >
               {t("quickLinks")}
@@ -74,6 +75,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Mui.Typography
               variant="body1"
               component={Router.Link}
+              fontSize={14}
               to="help-center"
               color="text.primary"
               sx={{ textDecoration: "none" }}
@@ -83,6 +85,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Mui.Typography
               variant="body1"
               component={Router.Link}
+              fontSize={14}
               to={auth ? "terms-of-service" : "account/terms-of-service"}
               color="text.primary"
               sx={{ textDecoration: "none" }}
@@ -92,6 +95,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Mui.Typography
               variant="body1"
               component={Router.Link}
+              fontSize={14}
               to={auth ? "privacy-policy" : "account/privacy-policy"}
               color="text.primary"
               sx={{ textDecoration: "none" }}
@@ -108,6 +112,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               variant="h6"
               color="primary"
               fontWeight={900}
+              fontSize={14}
               mb={2}
             >
               {t("company")}
@@ -115,6 +120,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Mui.Typography
               variant="body1"
               component={Router.Link}
+              fontSize={14}
               to="help-center"
               color="text.primary"
               sx={{ textDecoration: "underline" }}
@@ -124,6 +130,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             <Mui.Typography
               variant="body1"
               component={Router.Link}
+              fontSize={14}
               to={auth ? "terms-of-service" : "account/terms-of-service"}
               color="text.primary"
               sx={{ textDecoration: "none" }}
@@ -148,6 +155,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               color="primary"
               variant="h6"
               fontWeight={900}
+              fontSize={14}
               mb={2}
             >
               {t("contact")}
@@ -159,7 +167,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
                 component={Mui.Link}
                 href="mailto:support@DooWorld.com"
                 color="text.primary"
-                sx={{ textDecoration: "none" }}
+                sx={{ textDecoration: "none" , fontSize: "14"}}
               >
                 support@bitfuture.pro
               </Mui.Typography>
@@ -169,7 +177,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               <Mui.Typography
                 variant="body1"
                 color="text.primary"
-                sx={{ textDecoration: "none" }}
+                sx={{ textDecoration: "none", fontSize: 14 }}
               >
                 +918-0000 0001
               </Mui.Typography>
@@ -182,11 +190,12 @@ export const Footer = ({ auth }: { auth: boolean }) => {
               color="primary"
               variant="h6"
               fontWeight={900}
+              fontSize={14}
               mb={2}
             >
               {t("subscribeNewsLetter")}
             </Mui.Typography>
-            <Mui.Typography variant="body1">
+            <Mui.Typography fontSize={14} variant="body1">
             {t("KeepYourselfUpToDate")}
             </Mui.Typography>
             <Layouts.Main.Views.Subscribe />
@@ -202,7 +211,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
           p: 3,
         }}
       >
-        © Copyright {new Date().getFullYear()} by BitfutureWorld. All rights reserved.
+        © Copyright {new Date().getFullYear()} by  Future Capital Ventures. All rights reserved.
       </Mui.Typography>
     </>
   );
