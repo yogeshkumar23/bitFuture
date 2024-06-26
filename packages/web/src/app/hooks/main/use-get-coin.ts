@@ -47,7 +47,8 @@ export declare namespace UseCoin {
     fund_limit: number;
     coin_value: number;
     seller_fees: number;
-    bot_status: "binance" | "kucoin" | "off";
+    bot_status: "binance" | "kucoin" | "off"| "bybit";
+    // bot_status: "binance" | "kucoin" | "off";
     market_up: number;
     buyer_fees: number;
     minimum_quantity: number;

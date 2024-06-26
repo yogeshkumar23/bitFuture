@@ -1,16 +1,19 @@
 export const API_CONFIG = {
-  base: "/bitfuture-admin/",
+  base: "/admin/",
   // baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${
   //   import.meta.env.VITE_API_IP
   // }:${import.meta.env.VITE_API_PORT}${
   //   import.meta.env.MODE === "production" ? "/" : "/"
   // }`,
-  baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${import.meta.env.VITE_API_IP}${import.meta.env.MODE === "production" ? "/bitfuture/api" : "/bitfuture/api"}`,
+  baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${import.meta.env.VITE_API_IP}${import.meta.env.MODE === "production" ? "/api" : "/api"}`,
+  // baseURL: `${import.meta.env.VITE_API_ENCRYPTION}://${import.meta.env.VITE_API_IP}${import.meta.env.MODE === "production" ? "/bitfuture/api" : "/bitfuture/api"}`,
   binanceSocketURL: "wss://stream.binance.com:9443/stream",
+  bybitSocketURL: "wss://stream.bybit.com/v5/public/spot",
   kucoinSocketURL:
     "wss://ws-api-spot.kucoin.com?token=2neAiuYvAU61ZDXANAGAsiL4-iAExhsBXZxftpOeh_55i3Ysy2q2LEsEWU64mdzUOPusi34M_wGoSf7iNyEWJ3j1J_chrU2khPV8Q-xiuGJzThLkvpcCM9iYB9J6i9GjsxUuhPw3BlrzazF6ghq4Lx855G1AON3Is5Wv3Eavhic=.2n4Kr_DGuiqeeSkc0YC3gQ==",
   publicCoin: "https://api.coinstats.app/public/v1",
   binanceAPI: "https://api.binance.com/api/v3",
+  bybiyAPI: "https://api.bybit.com/v5",
   kucoinAPI: "https://api.kucoin.com/api/v1",
   gateAPI: "https://api.gateio.ws/api/v4",
   binanceProducts:

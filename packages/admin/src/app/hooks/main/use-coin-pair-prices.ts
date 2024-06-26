@@ -20,7 +20,7 @@ export const useCoinPairPrices = (): UseCoinBalance.Return => {
       setNativePrice(
         prices?.find(
           ({ currency_pair }: any) =>
-            currency_pair === `USDT_${nativeCurrency}`.toUpperCase()
+            currency_pair === `USDT${nativeCurrency}`.toUpperCase()
         )?.last || 1
       );
   }, [loading]);

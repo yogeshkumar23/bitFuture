@@ -12,7 +12,7 @@ export const useBinanceSpot = () => {
   const { coinId } = Router.useParams();
   const { sendJsonMessage, lastJsonMessage } = useWebSocket(
     Constants.API_CONFIG.binanceSocketURL
-  ) as any;
+  );
 
   const getRecentTrade = () => {
     Api.Server.Client.get(
@@ -36,13 +36,13 @@ export const useBinanceSpot = () => {
   React.useEffect(() => {
     sendJsonMessage({
       method: "SUBSCRIBE",
-      params: [`${coinId?.replace("_", "")?.toLowerCase()}@ticker`] as any,
+      params: [`${coinId?.replace("_", "")?.toLowerCase()}@ticker`],
       id: 1,
     });
     return () => {
       sendJsonMessage({
         method: "UNSUBSCRIBE",
-        params: [`${coinId?.replace("_", "")?.toLowerCase()}@ticker`] as any,
+        params: [`${coinId?.replace("_", "")?.toLowerCase()}@ticker`],
         id: 1,
       });
     };
@@ -70,7 +70,7 @@ export const useBinanceSpot = () => {
 export const useBinanceTradeChart = (
   coinId: string,
   range: number,
-  botStatus: "binance" | "kucoin" | "off"
+  botStatus: "bybit" | "kucoin" | "off"
 ) => {
   const [data, setData] = React.useState<number[][]>();
 
@@ -137,24 +137,26 @@ export const useBinanceTradeChart = (
         typeLimitFrom: new Date().getTime() - range,
         sort: "ASEC",
       }).then((res) => {
-        setData([
-          ...(res.coinChart as ownCoinChart[])
-            ?.map((candle) => Object.values(candle).slice(1, -1))
-            ?.filter((_, index) =>
-              2592000000 <= range
-                ? !Boolean(
-                    index %
-                      ({
-                        2592000000: 24,
-                        7776000000: 2,
-                        15552000000: 5,
-                        31104000000: 7,
-                        62208000000: 10,
-                      }[range] || 0)
-                  )
-                : true
-            ),
-        ]);
+        if (res?.coinChart)
+          setData([
+            ...(res?.coinChart as ownCoinChart[])
+              ?.map((candle) => Object.values(candle).slice(1, -1))
+              ?.filter((_, index) =>
+                2592000000 <= range
+                  ? !Boolean(
+                      index %
+                        ({
+                          2592000000: 24,
+                          7776000000: 2,
+                          15552000000: 5,
+                          31104000000: 7,
+                          62208000000: 10,
+                        }[range] || 0)
+                    )
+                  : true
+              ),
+          ]);
+        else setData([]);
       });
     }
   }, [coinId, range]);

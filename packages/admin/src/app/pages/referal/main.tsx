@@ -11,7 +11,7 @@ export const Main = () => {
     setFilter(e.target.value);
   const filteredUsers = users?.userList
     ? users.userList
-        .filter((user) => Boolean(user?.referredCount))
+        // .filter((user) => Boolean(user?.referredCount))
         .filter((user) =>
           `${user.firstName} ${user.lastName} ${user.email}`
             .toLocaleLowerCase()

@@ -6,7 +6,7 @@ import * as Providers from "src/app/providers";
 
 export const useSpotTrade = (
   uid: string,
-  botStatus: "binance" | "kucoin" | "off"
+  botStatus: "binance" | "kucoin" | "off" | "bybit"
 ) => {
   const queryClient = ReactQuery.useQueryClient();
   const handler = Providers.useCustomHandler;

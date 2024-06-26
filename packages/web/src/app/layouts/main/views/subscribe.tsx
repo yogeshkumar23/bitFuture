@@ -17,7 +17,7 @@ export const Subscribe = () => {
       {() => (
         <Mui.Stack component={Formik.Form} spacing={2}>
           <Components.Form.FormField
-            size="medium"
+            size="small"
             name="email"
             placeholder={`${t('enterYourEmail')}`}
           />

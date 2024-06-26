@@ -160,14 +160,14 @@ export const Footer = ({ auth }: { auth: boolean }) => {
             >
               {t("contact")}
             </Mui.Typography>
-            <Mui.Stack direction="row" alignItems="center" spacing={2}>
+            <Mui.Stack direction="row" alignItems="center" spacing={1}>
               <MuiIcons.MailOutlined fontSize="small" color="primary" />
               <Mui.Typography
                 variant="body1"
                 component={Mui.Link}
                 href="mailto:support@DooWorld.com"
                 color="text.primary"
-                sx={{ textDecoration: "none" , fontSize: "14"}}
+                sx={{ textDecoration: "none" , fontSize: 14}}
               >
                 support@bitfuture.pro
               </Mui.Typography>
@@ -205,6 +205,7 @@ export const Footer = ({ auth }: { auth: boolean }) => {
       <Mui.Typography
         textAlign="center"
         variant="body1"
+        fontSize={14}
         sx={{
           display: check ? "none" : "block",
           bgcolor: (theme) => `${theme.palette.grey[100]}`,

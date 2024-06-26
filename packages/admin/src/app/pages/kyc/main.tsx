@@ -16,22 +16,22 @@ export const Main = () => {
     setStatus(e.target.value);
   const filteredUsers = userKYCList?.userKycList
     ? userKYCList.userKycList
-        .filter(
-          (user: Hooks.Admin.useUserKyc.kyc) =>
-            ({
-              all: true,
-              notSubmitted: !Boolean(user.addressProofPhoto),
-              completed: user.idProof_verified && user.addressProof_verified,
-              pending:
-                !(user.idProof_verified && user.addressProof_verified) &&
-                Boolean(user.addressProofPhoto),
-            }[status])
-        )
-        .filter((user: Hooks.Admin.useUserKyc.kyc) =>
-          `${user.firstName} ${user.lastName} ${user.email}`
-            .toLocaleLowerCase()
-            .includes(filter.toLocaleLowerCase())
-        )
+      .filter(
+        (user: Hooks.Admin.useUserKyc.kyc) =>
+        ({
+          all: true,
+          notSubmitted: !Boolean(user.addressProofPhoto),
+          completed: user.idProof_verified && user.addressProof_verified,
+          pending:
+            !(user.idProof_verified && user.addressProof_verified) &&
+            Boolean(user.addressProofPhoto),
+        }[status])
+      )
+      .filter((user: Hooks.Admin.useUserKyc.kyc) =>
+        `${user.firstName} ${user.lastName} ${user.email}`
+          .toLocaleLowerCase()
+          .includes(filter.toLocaleLowerCase())
+      )
     : [];
 
   const data = filteredUsers.map((user: Hooks.Admin.useUserKyc.kyc) => ({
@@ -47,6 +47,8 @@ export const Main = () => {
     status:
       user.idProof_verified === 1 && user.addressProof_verified === 1 ? (
         <Mui.Typography color="success.dark">Completed</Mui.Typography>
+      ) : user.idProof_verified === 0 && user.addressProof_verified === 0 && (user.reason.length > 0) ? (
+        <Mui.Typography color="error.dark">Rejected</Mui.Typography>
       ) : (
         <Mui.Typography color="warning.dark">Pending</Mui.Typography>
       ),
