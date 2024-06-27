@@ -31,4 +31,14 @@ export default () =>
         },
       ],
     },
+    {
+      path: "disable-two-factor",
+      element: <Pages.User.Profile.Views.DisableTwoFactorEmail />,
+      children: [
+        {
+          path: "disable",
+          element: <Pages.Account.Dialogs.DisableTwoFactorNotification />,
+        },
+      ],
+    },
   ]);

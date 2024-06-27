@@ -128,9 +128,7 @@ export const MyOrders = ({ trades }: { trades: p2pTrade[] }) => {
           `${t('quantity')}`,
           `${t('tradedCoins')}`,
           `${t('payment')}  ${t('type')}`,
-          // "Actions/Status",
-
-          
+          // "Actions/Status",      
           `${t('actions')}/${t('status')}`,
 
         ]}

@@ -67,10 +67,10 @@ export const CreateTicket = () => {
                 />
               </Mui.Grid>
               <Mui.Grid item xs={12}>
-                <Components.Form.CheckBox
+                {/* <Components.Form.CheckBox
                   label={ `${t("metamaskAddressChange")}`}
                   name="metamask"
-                />
+                /> */}
                 <Mui.Alert
                   severity="warning"
                   sx={{ display: values["metamask"] ? "flex" : "none" }}

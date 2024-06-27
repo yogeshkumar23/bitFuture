@@ -43,6 +43,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => (
           type="text"
           label="Secondary phone number"
           disabled={disabled}
+          inputProps={{maxLength: 12}}
         />
       </Mui.Grid>
     </Mui.Grid>

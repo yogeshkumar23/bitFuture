@@ -54,10 +54,10 @@ export const Main = ({
                   ) || { balance: 0, freeze: 0, current_price: 0 };
                   return orderType === "sell"
                     ? field.max(
-                        currentBalance.balance -
-                          Math.abs(currentBalance.freeze),
-                        "Insufficient Balance"
-                      )
+                      currentBalance.balance -
+                      Math.abs(currentBalance.freeze),
+                      "Insufficient Balance"
+                    )
                     : field;
                 }
               )
@@ -198,23 +198,23 @@ export const Main = ({
                       .filter(([key]) =>
                         values["orderType"] === "buy"
                           ? ![
-                              "bank_transfer$account_no",
-                              "bank_transfer$account_name",
-                              "bank_transfer$bank_address",
-                              "bank_transfer$ifsc_code",
-                              "bank_transfer$sort_code",
-                              "bank_transfer$routing_number",
-                              "upi$upi_id",
-                              "interac$email",
-                              "interac$mobile_no",
-                              "zelle$email",
-                              "zelle$mobile_no",
-                              "m-pesa$name",
-                              "m-pesa$mobile_no",
-                              "mtn_mobile_money$name",
-                              "mtn_mobile_money$mobile_no",
-                              "cash_app$cash_tag_id",
-                            ].includes(key)
+                            "bank_transfer$account_no",
+                            "bank_transfer$account_name",
+                            "bank_transfer$bank_address",
+                            "bank_transfer$ifsc_code",
+                            "bank_transfer$sort_code",
+                            "bank_transfer$routing_number",
+                            "upi$upi_id",
+                            "interac$email",
+                            "interac$mobile_no",
+                            "zelle$email",
+                            "zelle$mobile_no",
+                            "m-pesa$name",
+                            "m-pesa$mobile_no",
+                            "mtn_mobile_money$name",
+                            "mtn_mobile_money$mobile_no",
+                            "cash_app$cash_tag_id",
+                          ].includes(key)
                           : true
                       )
                       .map(([key, value], index) => {
@@ -283,7 +283,7 @@ export const Main = ({
                         sx={{
                           display:
                             values["orderType"] === "sell" &&
-                            Object.values(values).filter(Boolean).length < 8
+                              Object.values(values).filter(Boolean).length < 8
                               ? "flex"
                               : "none",
                         }}
@@ -317,7 +317,7 @@ export const Main = ({
                         maxWidth: 100,
                         display:
                           values["orderType"] === "sell" &&
-                          Object.values(values).filter(Boolean).length < 8
+                            Object.values(values).filter(Boolean).length < 8
                             ? "none"
                             : "flex",
                       }}
@@ -334,7 +334,7 @@ export const Main = ({
                         maxWidth: 200,
                         display:
                           values["orderType"] === "sell" &&
-                          Object.values(values).filter(Boolean).length < 8
+                            Object.values(values).filter(Boolean).length < 8
                             ? "flex"
                             : "none",
                       }}

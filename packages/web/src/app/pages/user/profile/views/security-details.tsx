@@ -47,7 +47,9 @@ export const SecurityDetails = ({
           <Mui.Button
             color="secondary"
             variant="outlined"
-            onClick={disableTwoStep}
+            component={Router.Link}
+            to="disable-two-factor"
+            // onClick={disableTwoStep}
           >
            {t('disable')}
           </Mui.Button>

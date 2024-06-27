@@ -4,3 +4,4 @@ export * from "./logout";
 export * from "./mail-verify";
 export * from "./reset-success";
 export * from "./verified";
+export * from "./disable-two-factor-notification";

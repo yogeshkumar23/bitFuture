@@ -15,7 +15,7 @@ export const Withdraw = ({
   chainList: Hooks.User.UseCoinChains.chainList[] | undefined;
   verified: boolean;
 }) => {
-  const smsTime = 300000;
+  const smsTime = 120000;
   const { state } = Router.useLocation() as {
     state: Hooks.User.coinsWallet;
   };

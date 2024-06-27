@@ -45,6 +45,9 @@ const ResetRoute = React.lazy(
 const TwoFactorRoute = React.lazy(
   () => import("src/app/pages/account/two-factor/routes")
 );
+const DisableTwoFactorRoute = React.lazy(
+  () => import("src/app/pages/account/disable-two-factor/routes")
+);
 
 export const Main = () => {
   const { user } = React.useContext(Contexts.UserContext);
@@ -216,6 +219,10 @@ export const Main = () => {
           {
             path: "two-factor/*",
             element: <TwoFactorRoute />,
+          },
+          {
+            path: "disable-two-factor/*",
+            element: <DisableTwoFactorRoute />,
           },
           {
             path: "terms-of-service",

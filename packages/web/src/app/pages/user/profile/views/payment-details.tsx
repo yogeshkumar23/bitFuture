@@ -73,6 +73,8 @@ export const PaymentDetails = ({
             payment["bank_transfer$account_name"] || "",
           bank_transfer$bank_name: payment["bank_transfer$bank_name"] || "",
           bank_transfer$ifsc_code: payment["bank_transfer$ifsc_code"] || "",
+          bank_transfer$account_type: payment["bank_transfer$account_type"] || "",
+          bank_transfer$bank_address: payment["bank_transfer$bank_address"] || "",
           bank_transfer$sort_code: payment["bank_transfer$sort_code"] || "",
           bank_transfer$routing_number:
             payment["bank_transfer$routing_number"] || "",
@@ -137,9 +139,10 @@ export const PaymentDetails = ({
                   values["paymentType"] === "Bank Transfer" ? "block" : "none",
               }}
             >
-              <Components.Form.FormField
+              <Components.Form.NumberField
                 size="small"
                 name={`bank_transfer$account_no`}
+                inputProps={{maxLength: 11}}
                 label={
                   <>
                    {t('accountNo')} <span style={{ color: "red" }}>*</span>
@@ -147,6 +150,41 @@ export const PaymentDetails = ({
                 }
                 disabled={variant === "view" || isSubmitting}
               />
+            </Mui.Grid>
+            <Mui.Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+                display:
+                  values["paymentType"] === "Bank Transfer" ? "block" : "none",
+              }}
+
+            >
+
+              <Components.Form.SelectField
+                size="small"
+                name={`bank_transfer$account_type`}
+                disabled={variant === "view" || isSubmitting}
+                label={
+                  <>
+                    {t('accountType')} <span style={{ color: "red" }}>*</span>
+                  </>
+                }
+
+              >
+                <Mui.MenuItem disabled value={0}>
+                  <Mui.Typography variant="body1" color="text.secondary">
+                  {t('chooseAccountType')}
+                  </Mui.Typography>
+                </Mui.MenuItem>
+                {["Current", "Saving"]?.map((item, index) => (
+                  <Mui.MenuItem value={item} key={index}>
+                    {item}
+                  </Mui.MenuItem>
+                ))}
+              </Components.Form.SelectField>
+
             </Mui.Grid>
             <Mui.Grid
               item
@@ -234,7 +272,7 @@ export const PaymentDetails = ({
                 disabled={variant === "view" || isSubmitting}
               />
             </Mui.Grid>
-            <Mui.Grid
+            {/* <Mui.Grid
               item
               xs={12}
               md={6}
@@ -279,7 +317,7 @@ export const PaymentDetails = ({
                 }
                 disabled={variant === "view" || isSubmitting}
               />
-            </Mui.Grid>
+            </Mui.Grid> */}
             <Mui.Grid
               item
               xs={12}

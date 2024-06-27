@@ -9,13 +9,15 @@ import * as ReactNext from "react-i18next";
 export const Header = ({ user }: { user: Contexts.userContext.User }) => {
 
   const {t} = ReactNext.useTranslation();
+  
 
   return (
     <>
     <Mui.CardMedia
       component="img"
       src={Assets.Banner}
-      sx={{ zIndex: "0", position: "absolute", height: "100%" }}
+      sx={{ zIndex: "0", position: "absolute", height: "100%", filter: {xs:  "blur(3px) brightness(0.5) contrast(1.2)", md: "none"}}}
+      // filter: "blur(3px) brightness(0.5) contrast(1.2)"
     />
     <Mui.Stack
       sx={{
@@ -30,6 +32,7 @@ export const Header = ({ user }: { user: Contexts.userContext.User }) => {
       <Mui.Typography
         sx={{
           color: "#fff",
+          fontSize: {xs: "24"},
           fontWeight: 900,
           // textShadow: (theme) =>
           //   `2.5px 2.5px ${theme.palette.primary.dark}, 3px 3px #fff`,

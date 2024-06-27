@@ -26,6 +26,20 @@ export const commonOrder = Yup.object().shape({
   prefferedPayment: Yup.string()
     .notOneOf(["-1"], "Please select preferred payment")
     .required("No Payment Type provided"),
+    quantityLimitFrom: Yup.number()
+      .typeError("Must be number")
+      .notOneOf([0, undefined], "No Quantity from limit  provided")
+      .max(
+        Yup.ref("quantityLimitTo"),
+        "Minimum quantity exceeded from maximum quantity"
+      ),
+    quantityLimitTo: Yup.number()
+      .typeError("Must be number")
+      .notOneOf([0, undefined], "No Quantity to limit provided")
+      .max(
+        Yup.ref("noOfCoins"),
+        "Maximum quantity exceeded from provided quantity"
+      ),
 });
 
 export const editOrder = commonOrder.concat(editShowPostTill);

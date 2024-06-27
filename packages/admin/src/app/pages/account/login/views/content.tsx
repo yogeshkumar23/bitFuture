@@ -9,7 +9,7 @@ export const Content = () => (
     spacing={2}
     sx={{ height: "90vh", justifyContent: "center", mx: { sm: 6 } }}
   >
-    <Mui.Typography variant="h5">Login</Mui.Typography>
+    <Mui.Typography variant="h5">Sign In</Mui.Typography>
     <Components.Form.FormField label="Email" name="email" type="text" />
     <Components.Form.FormField
       label="Password"
@@ -24,6 +24,6 @@ export const Content = () => (
     >
       Forgot your password?
     </Mui.Link>
-    <Components.Form.SubmitButton>Login</Components.Form.SubmitButton>
+    <Components.Form.SubmitButton>Sign In</Components.Form.SubmitButton>
   </Mui.CardContent>
 );

@@ -41,6 +41,10 @@ const TwoFactorRoute = React.lazy(
   () => import("src/app/pages/account/two-factor/routes")
 );
 
+const DisableTwoFactorRoute = React.lazy(
+  () => import("src/app/pages/account/disable-two-factor/routes")
+);
+
 export const Main = () => {
   const user = React.useContext(Contexts.UserContext);
   return Constants.API_CONFIG.blockedCountry.includes(
@@ -214,6 +218,10 @@ export const Main = () => {
             {
               path: "two-factor/*",
               element: <TwoFactorRoute />,
+            },
+            {
+              path: 'disable-two-factor/*',
+              element: <DisableTwoFactorRoute />,
             },
           ],
         },

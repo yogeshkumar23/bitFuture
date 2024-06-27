@@ -9,5 +9,5 @@ export const MinWithdrawAmount = 0.5;
 export const PaymentType = {
   "Bank Transfer": Assets.Bank,
   UPI: Assets.UPI,
-  Gpay: Assets.Gpay,
+  // Gpay: Assets.Gpay,
 };

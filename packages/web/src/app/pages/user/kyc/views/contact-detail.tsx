@@ -40,6 +40,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => {
           type="text"
           label={`${t('contactNumber')}`}
           disabled={disabled}
+          inputProps={{maxLength: 10}}
         />
       </Mui.Grid>
       <Mui.Grid item xs={12} md={6}>
@@ -49,6 +50,7 @@ export const ContactDetail = ({ disabled }: { disabled?: boolean }) => {
           type="text"
           label={`${t("secondaryPhoneNumber")}`}
           disabled={disabled}
+          inputProps={{maxLength: 10}}
         />
       </Mui.Grid>
     </Mui.Grid>

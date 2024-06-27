@@ -223,3 +223,4 @@ export declare namespace AddForm {
     p2p_transactionFee: number;
   }
 }
+

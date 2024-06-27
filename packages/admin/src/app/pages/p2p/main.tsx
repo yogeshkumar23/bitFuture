@@ -47,13 +47,13 @@ export const Main = () => {
         type="percentage"
       />
     ),
-    MarkPrice: (
-      <Components.Global.Format
-        number={coin.p2p_markPrice}
-        type="coin"
-        coin={coin.currency_id}
-      />
-    ),
+    // MarkPrice: (
+    //   <Components.Global.Format
+    //     number={coin.p2p_markPrice}
+    //     type="coin"
+    //     coin={coin.currency_id}
+    //   />
+    // ),
     Status: (
       <Mui.Typography
         variant="inherit"
@@ -113,7 +113,7 @@ export const Main = () => {
             "Base Currency",
             "Quote Currency",
             "Transaction Fee",
-            "Mark Price",
+            // "Mark Price",
             "Status",
             "Action",
           ]}

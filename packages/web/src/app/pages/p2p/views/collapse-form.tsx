@@ -55,7 +55,11 @@ export const CollapseForm = (
   const validateCoin = Yup.object().shape({
     requestCoins: Yup.number()
       .typeError("Must br number")
-      .min(quantityLimitFrom, "Must be equal to minimum quantity")
+      // .min(quantityLimitFrom, "Must be equal to minimum quantity")
+      .min(
+        quantityLimitFrom > availableCoin ? 0.000001 : quantityLimitFrom,
+        "Must be equal to minimum quantity"
+      )
       .notOneOf([0, undefined], "Please provided no of coins")
       .max(
         availableCoin < coinBalance || orderType === "sell"

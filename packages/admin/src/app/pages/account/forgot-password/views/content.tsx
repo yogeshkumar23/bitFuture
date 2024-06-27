@@ -22,7 +22,7 @@ export const Content = () => (
         component={Router.Link}
         to={`${Constants.API_CONFIG.base}account/login`}
       >
-        Login
+        Sign In
       </Mui.Link>
     </Mui.Typography>
   </Mui.CardContent>

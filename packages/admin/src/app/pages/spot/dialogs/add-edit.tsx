@@ -13,15 +13,15 @@ const validateEditSpotPair = Yup.object().shape({
   baseCurrency: Yup.string()
     .notOneOf(["Select Base Currency"], "Base Currency is required")
     .required("Base Currency is required"),
-  baseCurrencyValue: Yup.number()
-    .typeError("Base currency should be number")
-    .required("Base Currency Value is required"),
+  // baseCurrencyValue: Yup.number()
+  //   .typeError("Base currency should be number")
+  //   .required("Base Currency Value is required"),
   quoteCurrency: Yup.string()
     .notOneOf(["Select Quote Currency"], "Quote Currency is required")
     .required("Quote Currency is required"),
-  quoteCurrencyValue: Yup.number()
-    .typeError("Quote currency should be number")
-    .required("Quote Currency Value is required"),
+  // quoteCurrencyValue: Yup.number()
+  //   .typeError("Quote currency should be number")
+  //   .required("Quote Currency Value is required"),
   commission: Yup.number()
     .typeError("Commission should be number")
     .required("Commission is required"),
@@ -33,24 +33,24 @@ const validateEditSpotPair = Yup.object().shape({
   sellerFee: Yup.number()
     .typeError("Seller Fee should be number")
     .required("Seller Fee is required"),
-  minimumPrice: Yup.number()
-    .typeError("Minimum Price should be number")
-    .required("Minimum Price is required"),
-  maximumPrice: Yup.number()
-    .typeError("Maximum Price should be number")
-    .required("Maximum Price is required"),
-  minimumQuantity: Yup.number()
-    .typeError("Minimum Quantity should be number")
-    .required("Minimum Quantity is required"),
-  maximumQuantity: Yup.number()
-    .typeError("Maximum Quantity should be number")
-    .required("Maximum Quantity is required"),
+  // minimumPrice: Yup.number()
+  //   .typeError("Minimum Price should be number")
+  //   .required("Minimum Price is required"),
+  // maximumPrice: Yup.number()
+  //   .typeError("Maximum Price should be number")
+  //   .required("Maximum Price is required"),
+  // minimumQuantity: Yup.number()
+  //   .typeError("Minimum Quantity should be number")
+  //   .required("Minimum Quantity is required"),
+  // maximumQuantity: Yup.number()
+  //   .typeError("Maximum Quantity should be number")
+  //   .required("Maximum Quantity is required"),
   marketPrice: Yup.number()
     .typeError("Market Price should be number")
     .required("Market Price is required"),
-  marketUp: Yup.number()
-    .typeError("Market Up should be number")
-    .required("Market Up is required"),
+  // marketUp: Yup.number()
+  //   .typeError("Market Up should be number")
+  //   .required("Market Up is required"),
 });
 
 export const AddEditPair = () => {
@@ -72,9 +72,9 @@ export const AddEditPair = () => {
       {
         coinId: state?.coinId,
         coin: values.baseCurrency,
-        coin_value: values.baseCurrencyValue,
+        // coin_value: values.baseCurrencyValue,
         currency: values.quoteCurrency,
-        currency_value: values.quoteCurrencyValue,
+        // currency_value: values.quoteCurrencyValue,
         active: values.coinStatus === "Active",
         p2p_active: values.p2p_active === "Active",
         is_p2pTrade: values.p2p_active === "Active",
@@ -82,12 +82,12 @@ export const AddEditPair = () => {
         bot_status: values.botStatus.toLowerCase(),
         buyer_fees: values.buyerFee,
         seller_fees: values.sellerFee,
-        minimum_price: values.minimumPrice,
-        maximum_price: values.maximumPrice,
-        minimum_quantity: values.minimumQuantity,
-        maximum_quantity: values.maximumQuantity,
+        // minimum_price: values.minimumPrice,
+        // maximum_price: values.maximumPrice,
+        // minimum_quantity: values.minimumQuantity,
+        // maximum_quantity: values.maximumQuantity,
         current_price: values.marketPrice,
-        market_up: values.marketUp,
+        // market_up: values.marketUp,
       }
     )
       .then((res) => {
@@ -132,39 +132,39 @@ export const AddEditPair = () => {
             pathname.includes("add")
               ? {
                   baseCurrency: "Select Base Currency",
-                  baseCurrencyValue: "" as unknown as number,
+                  // baseCurrencyValue: "" as unknown as number,
                   quoteCurrency: "Select Quote Currency",
-                  quoteCurrencyValue: "" as unknown as number,
+                  // quoteCurrencyValue: "" as unknown as number,
                   commission: "" as unknown as number,
                   coinStatus: "Active",
                   p2p_active: "Active",
                   botStatus: "Off",
                   buyerFee: "" as unknown as number,
                   sellerFee: "" as unknown as number,
-                  minimumPrice: "" as unknown as number,
-                  maximumPrice: "" as unknown as number,
-                  minimumQuantity: "" as unknown as number,
-                  maximumQuantity: "" as unknown as number,
+                  // minimumPrice: "" as unknown as number,
+                  // maximumPrice: "" as unknown as number,
+                  // minimumQuantity: "" as unknown as number,
+                  // maximumQuantity: "" as unknown as number,
                   marketPrice: "" as unknown as number,
-                  marketUp: "" as unknown as number,
+                  // marketUp: "" as unknown as number,
                 }
               : {
                   baseCurrency: state?.coin,
-                  baseCurrencyValue: state?.coin_value,
+                  // baseCurrencyValue: state?.coin_value,
                   quoteCurrency: state?.currency,
-                  quoteCurrencyValue: state?.currency_value,
+                  // quoteCurrencyValue: state?.currency_value,
                   commission: state?.commission,
                   coinStatus: state?.active ? "Active" : "Deactive",
                   p2p_active: state?.p2p_active ? "Active" : "Deactive",
                   botStatus: state?.bot_status,
                   buyerFee: state?.buyer_fees,
                   sellerFee: state?.seller_fees,
-                  minimumPrice: state?.minimum_price,
-                  maximumPrice: state?.maximum_price,
-                  minimumQuantity: state?.minimum_quantity,
-                  maximumQuantity: state?.maximum_quantity,
+                  // minimumPrice: state?.minimum_price,
+                  // maximumPrice: state?.maximum_price,
+                  // minimumQuantity: state?.minimum_quantity,
+                  // maximumQuantity: state?.maximum_quantity,
                   marketPrice: state?.current_price,
-                  marketUp: state?.market_up,
+                  // marketUp: state?.market_up,
                 }
           }
           validationSchema={validateEditSpotPair}
@@ -194,13 +194,13 @@ export const AddEditPair = () => {
                   </Mui.Grid>
                 )}
 
-                <Mui.Grid item xs={12} sm={6}>
+                {/* <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.AmountField
                     size="small"
                     name="baseCurrencyValue"
                     label="Base Currency Value"
                   />
-                </Mui.Grid>
+                </Mui.Grid> */}
 
                 {!pathname.includes("edit") && (
                   <Mui.Grid item xs={12} sm={6}>
@@ -223,12 +223,12 @@ export const AddEditPair = () => {
                   </Mui.Grid>
                 )}
 
-                <Mui.Grid item xs={12} sm={6}>
+                {/* <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.AmountField
                     name="quoteCurrencyValue"
                     label="Quote Currency Value"
                   />
-                </Mui.Grid>
+                </Mui.Grid> */}
 
                 <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.SelectField
@@ -295,7 +295,7 @@ export const AddEditPair = () => {
                   />
                 </Mui.Grid>
 
-                <Mui.Grid item xs={12} sm={6}>
+                {/* <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.AmountField
                     name="minimumPrice"
                     label="Minimum Price"
@@ -321,7 +321,7 @@ export const AddEditPair = () => {
                     name="maximumQuantity"
                     label="Maximum Quantity"
                   />
-                </Mui.Grid>
+                </Mui.Grid> */}
 
                 <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.AmountField
@@ -330,12 +330,12 @@ export const AddEditPair = () => {
                   />
                 </Mui.Grid>
 
-                <Mui.Grid item xs={12} sm={6}>
+                {/* <Mui.Grid item xs={12} sm={6}>
                   <Components.Form.AmountField
                     name="marketUp"
                     label="Market Up (%)"
                   />
-                </Mui.Grid>
+                </Mui.Grid> */}
 
                 <Mui.Grid
                   item
@@ -369,21 +369,21 @@ export const AddEditPair = () => {
 export declare namespace AddForm {
   export interface Form {
     baseCurrency: string;
-    baseCurrencyValue: number;
+    // baseCurrencyValue: number;
     quoteCurrency: string;
-    quoteCurrencyValue: number;
+    // quoteCurrencyValue: number;
     commission: number;
     coinStatus: string;
     p2p_active: string;
     botStatus: string;
     buyerFee: number;
     sellerFee: number;
-    minimumPrice: number;
-    maximumPrice: number;
-    minimumQuantity: number;
-    maximumQuantity: number;
+    // minimumPrice: number;
+    // maximumPrice: number;
+    // minimumQuantity: number;
+    // maximumQuantity: number;
     marketPrice: number;
-    marketUp: number;
+    // marketUp: number;
   }
 
   export interface coin {
