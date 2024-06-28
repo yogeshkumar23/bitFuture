@@ -36,7 +36,7 @@ export const ReferFriends = () => {
           Refer Your Friends And Get Rewards
         </Mui.Typography>
         <Mui.Typography variant="body1" sx={{ color: "#fff" }}>
-          Tell your friends about TITA. Copy and paste the referral URL provided
+          Tell your friends about BitFuture. Copy and paste the referral URL provided
           below to as many people as possible. Receive interesting incentives
           and deals as a reward for your recommendation!
         </Mui.Typography>

@@ -42,7 +42,7 @@ export const DocumentDetail = ({ disabled }: { disabled?: boolean }) => {
         </Components.Form.SelectField>
       </Mui.Grid>
       <Mui.Grid item xs={12} md={6}>
-        <Components.Form.NumberField
+        <Components.Form.FormField
           size="small"
           name="documentNumber"
           label={`${t("selectDocumentNumber")}`}

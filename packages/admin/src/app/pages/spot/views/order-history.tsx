@@ -126,7 +126,7 @@ export const OrderHistory = ({ type }: { type: "orders" | "trades" }) => {
             // ),
             amount: (
               <Components.Global.Format
-                number={trade.orderAmount}
+                number={trade.amount}
                 type="coin"
                 coin={trade?.quoteAsset}
               />

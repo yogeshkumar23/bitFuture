@@ -28,6 +28,10 @@ export const Routes: {
     url: "/admin/getUserTransactions",
     method: "get",
   },
+  updateUserTransaction: {
+    url: "/admin/userTransaction",
+    method: "post",
+  },
   getTransferredAssetList: {
     url: "/admin/getTransferredAssetList",
     method: "post",

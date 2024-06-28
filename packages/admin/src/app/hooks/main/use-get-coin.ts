@@ -39,7 +39,7 @@ export declare namespace UseCoin {
     price24hChange: string;
     fund_limit: number;
     coin_value: number;
-    bot_status: "binance" | "kucoin" | "off";
+    bot_status: "binance" | "kucoin" | "off" | "bybit";
     buyer_fees: number;
     seller_fees: number;
     minimum_price: number;

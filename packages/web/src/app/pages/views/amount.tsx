@@ -75,7 +75,7 @@ export const AmountBox = ({
           {t('balanceDetails')}
 
           </Mui.Typography>
-          <Mui.Button
+          {/* <Mui.Button
             id="mainCurrencyDeposit"
             variant="contained"
             size="small"
@@ -95,7 +95,7 @@ export const AmountBox = ({
           >
             {t('withdraw')}
 
-          </Mui.Button>
+          </Mui.Button> */}
         </Mui.Stack>
 
         <Mui.Divider sx={{ bgcolor: "#ffff", mt: 1, opacity: 0.8 }} />

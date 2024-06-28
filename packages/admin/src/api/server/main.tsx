@@ -54,7 +54,7 @@ export const Request = (
       }
       return res.data;
     })
-    .catch((e) => e.response.data);
+    .catch((e) => e?.response?.data);
 };
 
 export const useRequest = (

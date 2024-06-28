@@ -11,4 +11,5 @@ export default () =>
       path: "deposit_withdraw",
       element: <Pages.Transactions.Main />,
     },
+    { path: "pay", element: <Pages.Transactions.Views.PayTransactions /> },
   ]);

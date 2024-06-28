@@ -49,7 +49,7 @@ export const OrderErrors = () => {
             >{`${trade.firstName} ${trade.lastName}`}</Mui.Typography>
           ),
           email: trade.email,
-          pair: `${trade.baseAsset}/${trade.quoteAsset}`,
+          pair: `${trade.coin}/${trade.coinPair}`,
           side: (
             <Mui.Typography
               variant="inherit"
@@ -66,13 +66,14 @@ export const OrderErrors = () => {
             <Components.Global.Format
               number={trade.amount}
               type="coin"
-              coin={
-                Constants.ORDERTYPE[trade.orderType - 1]
-                  ?.toUpperCase()
-                  ?.includes("BUY")
-                  ? trade.baseAsset
-                  : trade?.quoteAsset
-              }
+              coin={trade.mainAsset}
+              // coin={
+              //   Constants.ORDERTYPE[trade.orderType - 1]
+              //     ?.toUpperCase()
+              //     ?.includes("BUY")
+              //     ? trade.baseAsset
+              //     : trade?.quoteAsset
+              // }
             />
           ),
           status: (
@@ -107,7 +108,7 @@ export const OrderErrors = () => {
                 : trade.status.toLowerCase()}
             </Mui.Typography>
           ),
-          message: JSON.parse(trade.errorInfo)["msg"],
+          message: trade.errorInfo,
           action: (
             <Mui.Stack direction={{ xs: "column", md: "row" }} spacing={1}>
               <Mui.Button
@@ -198,3 +199,4 @@ export const OrderErrors = () => {
     </Components.Global.Container>
   );
 };
+

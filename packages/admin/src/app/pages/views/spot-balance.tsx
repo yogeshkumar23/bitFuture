@@ -315,12 +315,12 @@ export const SpotBalance = ({
                 amountType="amount"
                 amount={
                   asset.typeId === mainCurrency
-                    ? prices.find(
+                    ? prices?.find(
                         (coinPrice) =>
                           coinPrice.currency_pair ===
                           `${asset.typeId}_USD`.toUpperCase()
                       )?.last || 1
-                    : (prices.find(
+                    : (prices?.find(
                         (coinPrice) =>
                           coinPrice.currency_pair ===
                           `${asset.typeId}_USDT`.toUpperCase()
@@ -351,12 +351,12 @@ export const SpotBalance = ({
                 amountType="amount"
                 amount={
                   asset.typeId === mainCurrency
-                    ? prices.find(
+                    ? prices?.find(
                         (coinPrice) =>
                           coinPrice.currency_pair ===
                           `${asset.typeId}_USD`.toUpperCase()
                       )?.last || 1
-                    : (prices.find(
+                    : (prices?.find(
                         (coinPrice) =>
                           coinPrice.currency_pair ===
                           `${asset.typeId}_USDT`.toUpperCase()

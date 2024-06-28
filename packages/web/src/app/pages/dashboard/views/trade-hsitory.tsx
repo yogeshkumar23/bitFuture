@@ -30,6 +30,107 @@ export const TradeHistory = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFilter(e.target.value);
 
+  // const p2p_data = p2p_trades
+  //   ? p2p_trades
+  //       .filter((trade) =>
+  //         `${trade.coin} ${trade.currency} ${trade.noOfCoins} ${trade.pricePerCoin} ${trade.prefferedPayment} ${trade.status}`
+  //           .toLowerCase()
+  //           .includes(filter)
+  //       )
+  //       .map((trade) => {
+  //         const buyer =
+  //           Boolean(trade.orderType === "buy" && trade?.uid === user?.uid) ||
+  //           Boolean(
+  //             trade.orderType === "sell" && trade?.requestuid === user?.uid
+  //           );
+
+  //         return {
+  //           id: (
+  //             <Mui.Stack direction="row" alignItems="center">
+  //               <Mui.Typography variant="inherit" width={100} noWrap>
+  //                 {trade.tradeId}{" "}
+  //               </Mui.Typography>
+  //               <Mui.IconButton
+  //                 size="small"
+  //                 onClick={() => contentCopy(trade.tradeId as string)}
+  //               >
+  //                 <MuiIcons.CopyAll fontSize="inherit" color="primary" />
+  //               </Mui.IconButton>
+  //             </Mui.Stack>
+  //           ),
+  //           date: trade.showPostTill,
+  //           type: (
+  //             <Mui.Typography
+  //               sx={{
+  //                 bgcolor: (theme) =>
+  //                   buyer
+  //                     ? `${theme.palette.success.light}30`
+  //                     : `${theme.palette.error.light}30`,
+  //                 py: 0.5,
+  //                 px: 2,
+  //                 borderRadius: 1,
+  //                 width: "fit-content",
+  //                 textTransform: "capitalize",
+  //               }}
+  //               color={buyer ? "success.light" : "error.light"}
+  //               variant="inherit"
+  //             >
+  //               {buyer ? "Buy" : "Sell"}
+  //             </Mui.Typography>
+  //           ),
+  //           pair: `${trade.coin}-${trade.currency}`,
+  //           limit: `${trade.quantityLimitFrom}-${trade.quantityLimitTo}`,
+  //           quantity: trade.requestCoins,
+  //           paymentType:
+  //             +trade.prefferedPayment === 0
+  //               ? "All Payments"
+  //               : trade.prefferedPayment,
+  //           status: (
+  //             <Mui.Stack direction="row">
+  //               <MuiIcons.FiberManualRecord
+  //                 color={
+  //                   {
+  //                     cancelled: "error",
+  //                     pending: "error",
+  //                     partiallyPending: "error",
+  //                     dispute: "error",
+  //                     declined: "error",
+  //                     expired: "warning",
+  //                     ongoing: "warning",
+  //                     confirm: "success",
+  //                     confirmed: "success",
+  //                     completed: "success",
+  //                     undefined: undefined,
+  //                   }[trade?.status] as color
+  //                 }
+  //                 sx={{ width: 8, mx: 0.5 }}
+  //               />
+  //               <Mui.Typography
+  //                 color={
+  //                   {
+  //                     cancelled: "error.main",
+  //                     dispute: "error.main",
+  //                     pending: "error.main",
+  //                     partiallyPending: "error.main",
+  //                     declined: "error.main",
+  //                     expired: "warning.main",
+  //                     ongoing: "warning.main",
+  //                     confirm: "success.main",
+  //                     confirmed: "success.main",
+  //                     completed: "success.main",
+  //                   }[trade?.status]
+  //                 }
+  //                 variant="body2"
+  //                 sx={{ textTransform: "capitalize" }}
+  //               >
+  //                 {trade.status}
+  //               </Mui.Typography>
+  //             </Mui.Stack>
+  //           ),
+  //         };
+  //       })
+  //   : [];
+
   const p2p_data = p2p_trades
     ? p2p_trades
         .filter((trade) =>

@@ -4,6 +4,7 @@ import * as Hooks from "src/app/hooks";
 
 export const ReferredUsers = () => {
   const { referredUsers, loading } = Hooks.User.GetReferredList();
+  console.log(referredUsers, 'referred user data')
   const data = referredUsers?.userLists
     ? referredUsers?.userLists?.map(({ uid, email, phoneNumber, ...user }) => ({
         date: user.created_At,

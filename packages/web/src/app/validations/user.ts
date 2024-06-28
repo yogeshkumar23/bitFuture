@@ -39,6 +39,7 @@ export const validateKYC2 = Yup.object().shape({
   documentType: Yup.string().notOneOf(["0"], "No Document Type provided"),
   documentNumber: Yup.string()
     .typeError("No Document number provided")
+    .matches(/^[a-zA-Z0-9]+$/, "Please enter the valid document number")
     .required("No Document number provided")
     .when(
       "documentType",

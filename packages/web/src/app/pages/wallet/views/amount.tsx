@@ -152,7 +152,7 @@ export const AmountBox = ({
         </Mui.Stack>
         <Mui.Box flexGrow={{ xs: 0, sm: 1 }} />
         <Mui.Stack spacing={2} direction="row">
-          <Mui.Button
+          {/* <Mui.Button
             id="mainCurrencyDeposit"
             variant="contained"
             color="success"
@@ -182,7 +182,7 @@ export const AmountBox = ({
             // }}
           >
            {t('withdraw')}
-          </Mui.Button>
+          </Mui.Button> */}
         </Mui.Stack>
       </Mui.Stack>
     </Components.Global.Container>

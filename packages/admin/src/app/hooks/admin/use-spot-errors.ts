@@ -34,6 +34,7 @@ export declare namespace GetTradeError {
     firstName: string;
     lastName: string;
     email: string;
+    mainAsset: string;
     quoteAsset: string;
     baseAsset: string;
   }

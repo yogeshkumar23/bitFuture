@@ -273,7 +273,7 @@ export const AddEditPair = () => {
                     label="Bot Status"
                     defaultValue="Off"
                   >
-                    {["Binance", "Off"]?.map((text, index) => (
+                    {["Bybit", "Off"]?.map((text, index) => (
                       <Mui.MenuItem value={text.toLowerCase()} key={index}>
                         {text}
                       </Mui.MenuItem>
